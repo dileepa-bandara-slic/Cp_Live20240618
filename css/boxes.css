@@ -1,0 +1,16 @@
+﻿.boxesL
+{
+    width:49%;
+    text-align:center;
+   
+    float:left;
+    }
+    
+    .boxesR
+    {
+        position:relative;
+    left:20px;
+    width:49%;
+    text-align:center;
+    float:left;
+    }

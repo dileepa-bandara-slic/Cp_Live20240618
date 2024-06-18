@@ -1,0 +1,872 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="General_Change.master.cs" Inherits="General_Change" %>
+
+<%--<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>--%>
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Home | Sri Lanka Insurance ~ Like a father - Like a Mother ~</title>
+    <!-- fonts -->
+    <!-- Bootstrap -->
+    <link rel="icon" href="assets/images/xfavicon.png" type="image/png">
+<%--    <link rel="stylesheet" href="http://52.79.122.10/slic_front/public/assets/css/bootstrap.min.css">--%>
+  <%--  <link rel="stylesheet" href="http://52.79.122.10/slic_front/public/assets/css/font-awesome.min.css">--%>
+
+         <link rel="stylesheet" href="assets/css/bootstrap_corp.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome_corp.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/animate_corp.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/slick_corp.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/component_corp.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/index_corp.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/index-fix_corp.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/menu-rearrange.css"> -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>.scroll-down{bottom:15%}</style>
+    <script>var base_url='http://52.79.122.10/slic_front/public';</script>
+    <script src='assets/css/api_corp.js'></script> </head>
+ <body>
+    <div class="main_wrapper">
+                <div class="wrapping-header">
+    <header class="default-header top-level-navigation">
+        <div class="container custom_container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <button class="navbar-toggler mainMenu_button collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="main_menu_text">Main menu</span><span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                                                <a class="nav-item nav-link active" id="personal" href="http://52.79.122.10/slic_front/public/en/personal">Personal <span class="sr-only">(current)</span></a>
+                                                                <a class="nav-item nav-link " id="personal" href="http://52.79.122.10/slic_front/public/en/business">Business <span class="sr-only">(current)</span></a>
+                                                                <a class="nav-item nav-link " id="personal" href="http://52.79.122.10/slic_front/public/en/about-us">About Us <span class="sr-only">(current)</span></a>
+                                                            </div>
+                        </div>
+                    </nav>
+                    <ul>
+                        <!-- <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span>Find a branch</span></a></li> -->
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header class="default-header first-level-navigation">
+        <div id="menu_area" class="menu-area">
+            <div class="container custom_container">
+                <div class="row">
+                    <%--<a class="navbar-brand" href="http://52.79.122.10/slic_front/public">--%>
+                    <a class="navbar-brand" href="#">
+     <%--                   <script data-pagespeed-no-defer>//<![CDATA[
+(function(){for(var g="function"==typeof Object.defineProperties?Object.defineProperty:function(b,c,a){if(a.get||a.set)throw new TypeError("ES3 does not support getters and setters.");b!=Array.prototype&&b!=Object.prototype&&(b[c]=a.value)},h="undefined"!=typeof window&&window===this?this:"undefined"!=typeof global&&null!=global?global:this,k=["String","prototype","repeat"],l=0;l<k.length-1;l++){var m=k[l];m in h||(h[m]={});h=h[m]}var n=k[k.length-1],p=h[n],q=p?p:function(b){var c;if(null==this)throw new TypeError("The 'this' value for String.prototype.repeat must not be null or undefined");c=this+"";if(0>b||1342177279<b)throw new RangeError("Invalid count value");b|=0;for(var a="";b;)if(b&1&&(a+=c),b>>>=1)c+=c;return a};q!=p&&null!=q&&g(h,n,{configurable:!0,writable:!0,value:q});var t=this;function u(b,c){var a=b.split("."),d=t;a[0]in d||!d.execScript||d.execScript("var "+a[0]);for(var e;a.length&&(e=a.shift());)a.length||void 0===c?d[e]?d=d[e]:d=d[e]={}:d[e]=c};function v(b){var c=b.length;if(0<c){for(var a=Array(c),d=0;d<c;d++)a[d]=b[d];return a}return[]};function w(b){var c=window;if(c.addEventListener)c.addEventListener("load",b,!1);else if(c.attachEvent)c.attachEvent("onload",b);else{var a=c.onload;c.onload=function(){b.call(this);a&&a.call(this)}}};var x;function y(b,c,a,d,e){this.h=b;this.j=c;this.l=a;this.f=e;this.g={height:window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight,width:window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth};this.i=d;this.b={};this.a=[];this.c={}}function z(b,c){var a,d,e=c.getAttribute("data-pagespeed-url-hash");if(a=e&&!(e in b.c))if(0>=c.offsetWidth&&0>=c.offsetHeight)a=!1;else{d=c.getBoundingClientRect();var f=document.body;a=d.top+("pageYOffset"in window?window.pageYOffset:(document.documentElement||f.parentNode||f).scrollTop);d=d.left+("pageXOffset"in window?window.pageXOffset:(document.documentElement||f.parentNode||f).scrollLeft);f=a.toString()+","+d;b.b.hasOwnProperty(f)?a=!1:(b.b[f]=!0,a=a<=b.g.height&&d<=b.g.width)}a&&(b.a.push(e),b.c[e]=!0)}y.prototype.checkImageForCriticality=function(b){b.getBoundingClientRect&&z(this,b)};u("pagespeed.CriticalImages.checkImageForCriticality",function(b){x.checkImageForCriticality(b)});u("pagespeed.CriticalImages.checkCriticalImages",function(){A(x)});function A(b){b.b={};for(var c=["IMG","INPUT"],a=[],d=0;d<c.length;++d)a=a.concat(v(document.getElementsByTagName(c[d])));if(a.length&&a[0].getBoundingClientRect){for(d=0;c=a[d];++d)z(b,c);a="oh="+b.l;b.f&&(a+="&n="+b.f);if(c=!!b.a.length)for(a+="&ci="+encodeURIComponent(b.a[0]),d=1;d<b.a.length;++d){var e=","+encodeURIComponent(b.a[d]);131072>=a.length+e.length&&(a+=e)}b.i&&(e="&rd="+encodeURIComponent(JSON.stringify(B())),131072>=a.length+e.length&&(a+=e),c=!0);C=a;if(c){d=b.h;b=b.j;var f;if(window.XMLHttpRequest)f=new XMLHttpRequest;else if(window.ActiveXObject)try{f=new ActiveXObject("Msxml2.XMLHTTP")}catch(r){try{f=new ActiveXObject("Microsoft.XMLHTTP")}catch(D){}}f&&(f.open("POST",d+(-1==d.indexOf("?")?"?":"&")+"url="+encodeURIComponent(b)),f.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),f.send(a))}}}function B(){var b={},c;c=document.getElementsByTagName("IMG");if(!c.length)return{};var a=c[0];if(!("naturalWidth"in a&&"naturalHeight"in a))return{};for(var d=0;a=c[d];++d){var e=a.getAttribute("data-pagespeed-url-hash");e&&(!(e in b)&&0<a.width&&0<a.height&&0<a.naturalWidth&&0<a.naturalHeight||e in b&&a.width>=b[e].o&&a.height>=b[e].m)&&(b[e]={rw:a.width,rh:a.height,ow:a.naturalWidth,oh:a.naturalHeight})}return b}var C="";u("pagespeed.CriticalImages.getBeaconData",function(){return C});u("pagespeed.CriticalImages.Run",function(b,c,a,d,e,f){var r=new y(b,c,a,e,f);x=r;d&&w(function(){window.setTimeout(function(){A(r)},0)})});})();pagespeed.CriticalImages.Run('/mod_pagespeed_beacon','http://52.79.122.10/slic_front/public/en/personal','2GeHiInprd',true,false,'1WamWnU2LlE');
+//]]></script>--%>
+                               <img src="assets/images/logo.jpg" />
+                    </a>
+                 <%--   <div class="submenu_mobile">
+                        <span></span>
+                    </div>--%>
+                    <div class="main">
+                                                <nav id="cbp-hrmenu" class="cbp-hrmenu personal">
+                            <ul>
+                                                                    <li class="">
+                                                                            <a href="/Life/Authorized/Default.aspx">Life </a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/investment-products/divi-thilina-protection-plan">Manage My Policies</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/investment-products/praguna-high-returns-plan">Third Party Premiums</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                      <%--              <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/investment-products/swarna-dhaja">Swarna Dhaja</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/investment-products/jana-diri-two-year-relief-plan">Jana Diri - Two year relief plan</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/investment-products/sri-lanka-insurance-health-plus">Sri Lanka Insurance Wealth Plus</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>--%>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                                    <li class="">
+                                                                            <a href="/General/Authorized/Default.aspx">General </a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/home-insurance/burglary-insurance">Manage Policies</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/home-insurance/fire-insurance-for-dwelling-houses">Purchase Online</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                <%--                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/home-insurance/home-protect-insurance">Home Protect Insurance</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/home-insurance/home-protect-lite">Home Protect Lite</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li--%>>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                                    <li class="">
+                                                                            <a href="#">Profile </a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/travel-insurance/travel-protect">Travel Protect</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                                    <li class="">
+                                                                            <a href="#">Professional </a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/professional-insurance/sri-lanka-insurance-gaurawa">Sri Lanka Insurance Gaurawa</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                                    <li class="">
+                                                                            <a href="#">Retirement </a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/retirement-products/freedom-retirement-plan">Freedom Retirement Plan</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/retirement-products/freedom-single-premium-plan">Freedom Single Premium Plan</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/retirement-products/freedom-lifestyle-plus">Freedom Lifestyle Plus</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                                    </li>
+                                                                    <li class="">
+                                                                            <a href="#">Children</a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/children-s-insurance-plan/minimuthu-dayada">Minimuthu Dayada</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/children-s-insurance-plan/minimuthu-children-s-policy">Minimuthu Children&#039;s Policy</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/children-s-insurance-plan/minimuthu-parithyaga">Minimuthu Parithyaga</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                                    <li class="">
+                                                                            <a href="#">Health </a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/health-insurance/annual-medical-plan">Annual Medical Plan</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/health-insurance/medi-life">Medi - Life</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/health-insurance/surgical-plan">Surgical Plan</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/health-insurance/comprehensive-health-plus">Comprehensive Health Plus</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/health-insurance/comprehensive-d-plan">Comprehensive D+ Plan</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/health-insurance/hospital-cash-plan">Hospital Cash Plan</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                                    <li class="">
+                                                                            <a href="#">Motor </a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/motor-insurance/motor-plus">Motor Plus</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/motor-insurance/motor-plus-commercial-vehicle">Motor Plus Commercial Vehicle</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/motor-insurance/motor-fleet-solutions">Motor Fleet Solutions</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                                    <li class="">
+                                                                            <a href="#">Mortgage</a>
+                                            <div class="cbp-hrsub">
+                                                <div class="cbp-hrsub-inner">
+                                                    <div>
+                                                        <ul>
+                                                                                                                    <li class="">
+                                                                <a href="http://52.79.122.10/slic_front/public/en/personal/mortgage-insurance/mortgage-protection-plan">Mortgage Protection Plan</a>
+                                                                <ul>
+                                                                                                                                     </ul>
+                                                            </li>
+                                                                                                                </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                                                            </li>
+                                                            </ul>
+                        </nav>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>		    <div class="home-banner">
+    <div class="home-banner-text wow fadeInLeft" data-wow-delay="1s">
+        <span>Welcome to the world of</span><br>Sri Lanka Insurance
+    </div>
+    <div class="home-slider">
+        <div class="slider-item slider-item1 wow fadeIn" data-wow-delay="0.2s" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/banner-image02.jpg);">
+            <div class="slideinimage slideinimage1 wow fadeInDown" data-wow-delay="0.4s"><img src="http://52.79.122.10/slic_front/public/assets/images/banner-image-add1.png" data-pagespeed-url-hash="3780262345" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+            <div class="slideinimage slideinimage2 wow fadeInUp" data-wow-delay="0.6s"><img src="http://52.79.122.10/slic_front/public/assets/images/banner-image-add2.png" data-pagespeed-url-hash="4074762266" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+            <div class="slideinimage slideinimage3 wow fadeInLeft" data-wow-delay="0.8s"><img src="http://52.79.122.10/slic_front/public/assets/images/banner-image-add3.png" data-pagespeed-url-hash="74294891" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+        <!-- <img src="http://52.79.122.10/slic_front/public/assets" /> -->
+        </div>
+    <!-- <div class="slider-item">
+                    <img src="http://52.79.122.10/slic_front/public/assetsimages/banner-image02.jpg" />
+                </div>
+                <div class="slider-item">
+                    <img src="http://52.79.122.10/slic_front/public/assetsimages/banner-image03.jpg" />
+                </div> -->
+    </div>
+</div>    <div class="quick-links-wrapper">
+    <div class="container custom_container">
+        <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="individual/travel-insurance/travel-protect" class="ql-block-inner">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/affordability.png);"></div>
+                    <div class="ql-link-name">TRAVEL PROTECT INSURANCE</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="individual/motor-insurance/motor-plus" class="ql-block-inner">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/anchor.png);"></div>
+                    <div class="ql-link-name">MOTOR INSURANCE</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="individual/health-insurance/annual-medical-plan" class="ql-block-inner">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/cover.png);"></div>
+                    <div class="ql-link-name">HEALTH INSURANCE</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="individual/home-insurance/home-protect-insurance" class="ql-block-inner">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/house.png);"></div>
+                    <div class="ql-link-name">HOME PROTECT INSURANCE</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="https://www.srilankainsurance.com/agenworks/Signin.asp" class="ql-block-inner" target="_blank">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/pay.png);"></div>
+                    <div class="ql-link-name">BEE ADVISOR</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="https://www.srilankainsurance.net/" class="ql-block-inner" target="_blank">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/warranty.png);"></div>
+                    <div class="ql-link-name">ONLINE SERVICES</div>
+                </a>
+            </div>
+                    </div>
+    </div>
+</div>    <div class="help-and-supports">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 howmaysup wow fadeIn" data-wow-delay="0.2s">
+                <form id="searchService">
+    <input type="hidden" name="_token" value="ShZnaPusCMOYUQJSNL4EoKEo04myzhGFkxR3GdK4">
+    <h3 class="wow fadeInLeft" data-wow-delay="0.3s"><span>How may we support you?</span></h3>
+    <h2 class="wow fadeInLeft" data-wow-delay="0.5s">I'm a/an <span class="select-span">
+            <select id="level1">
+                <option value="0">-select-</option>
+                                                            <option value="212">mother</option>
+                                                                                                                    <option value="214">child</option>
+                                                                                    </select> </span> and would like to know more about
+            <span class="select-span">
+                <select name="service_opt" id="level2">
+                    <option value="0">-select-</option>
+                </select>
+            </span>
+    </h2>
+</form>
+<button class="btn-def wow fadeInLeft" data-wow-delay="0.7s" id="submitButton">Go</button>
+            </div>
+            <div class="col-md-6 howmaysup2">
+                <div class="row">
+                                                            <div class="col-md-6 link-block wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="link-block-inner">
+                            <div class="link-main">LOYALTY REWARDS</div>
+
+                            <p><a class="readmore-link" href="#">Application Form</a></p>
+                        </div>
+                    </div>
+                                        <div class="col-md-6 link-block wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="link-block-inner">
+                            <div class="link-main">GARAGE REGISTRATION</div>
+
+                            <p><a class="readmore-link" href="images/pdf/garage.pdf">Application Form</a></p>
+                        </div>
+                    </div>
+                                        <div class="col-md-6 link-block wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="link-block-inner">
+                            <div class="link-main">LIFE CASHLESS OPERATION</div>
+
+                            <p><a class="readmore-link" href="https://www.srilankainsurance.com/Lifehealth/CashlessPayment/Login.aspx" target="_blank" rel="noopener noreferrer">Account Login</a></p>
+                        </div>
+                    </div>
+                                        <div class="col-md-6 link-block wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="link-block-inner">
+                            <div class="link-main">SUBAPATHUM SCHOLARSHIP</div>
+
+                            <p><a class="readmore-link" href="https://www.srilankainsurance.com/SubaPathum_Web/Subapathum_Customer_Web/Login.aspx" target="_blank" rel="noopener noreferrer">Account Login</a></p>
+                        </div>
+                    </div>
+                           
+                        <div class="col-md-12 link-block wow fadeInDown" data-wow-delay="1.6s">
+                            <div class="promotion-banner-inner">
+                                <a href="#"><img src="http://52.79.122.10/slic_front/public/assets/images/promotion-banner.jpg" data-pagespeed-url-hash="2902527278" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></a>
+                            </div>
+                        </div>
+                    <!-- <div class="col-md-12 link-block wow fadeInDown" data-wow-delay="1.6s">
+                        <div class="link-block-inner link-block-location">
+                            <div class="location-icon"><img src="http://52.79.122.10/slic_front/public/assets/images/address.png" /></div>
+                            <div class="location-text">Find the nearest branch</div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    <section>
+    <div class="featured-products">
+        <div class="container custom_container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading wow fadeInDown" data-wow-delay="0s">Most Popular Products</div>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/investment-products/divi-thilina-protection-plan" class="mpp-block-inner mpp-block-inner1 divi_thilina_protection_plan_icon">
+                                                
+                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Divi Thilina Protection Plan</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/motor-insurance/motor-plus" class="mpp-block-inner mpp-block-inner1 motor_plus_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Motor Plus</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/home-insurance/home-protect-insurance" class="mpp-block-inner mpp-block-inner1 home_protect_insurance_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Home Protect Insurance</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/professional-insurance/sri-lanka-insurance-gaurawa" class="mpp-block-inner mpp-block-inner1 sri_lanka_insurance_gaurawa_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Sri Lanka Insurance Gaurawa</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/retirement-products/freedom-retirement-plan" class="mpp-block-inner mpp-block-inner1 freedom_retirement_plan_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Freedom Retirement Plan</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/health-insurance/annual-medical-plan" class="mpp-block-inner mpp-block-inner1 annual_medical_plan_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Annual Medical Plan</span></div></div>
+                    </a>
+                </div>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>    <section>
+        <div class="cta-section" style="background-image:  url(http://52.79.122.10/slic_front/public/assets/images/cta-bg1.png)  ;">
+        <div class="container custom_container">
+            <div class="row">
+                <div class="col-md-7 cta-text">
+                    <!-- <div class="section-heading">News &amp; Updates</div> -->
+
+
+                    <h3><strong>Choose the best Insurance plan with Sri Lanka Insurance</strong></h3>
+<p>Contact us now and we will be glad to assist you.</p>
+                    <a class="btn-def btn-rev wow fadeInLeft" data-wow-delay="0.5s" href="http://52.79.122.10/slic_front/public/en/footer-menu/contact-us ">Contact us</a>
+                    <span class="wow fadeInLeft" data-wow-delay="0.6s" style="color: #ffffff; display: inline-block;">or</span> 
+                    <a class="btn-def btn-rev wow fadeInLeft" data-wow-delay="0.7s" href="http://52.79.122.10/slic_front/public/en/footer-menu/branch-locator ">Find a branch</a>
+                </div>
+                <div class="col-md-5 cta-image-block wow fadeInDown" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg)">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal -->
+<div id="contactModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="http://52.79.122.10/slic_front/public/contact " method="post">
+                    <input type="hidden" name="_token" value="ShZnaPusCMOYUQJSNL4EoKEo04myzhGFkxR3GdK4">
+                    <div class="form-group">
+                        <label for="fname">Full Name:</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Contact no:</label>
+                        <input type="text" class="form-control" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fname">Message:</label>
+                        <textarea name="message" class="form-control" rows="10" name="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LfQ7qoUAAAAADuTO7Aqgms3Ar08-zYOnMc16B4_"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>    <section>
+    <div class="news-and-events">
+        <div class="container custom_container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading wow fadeInDown" data-wow-delay="0s">News &amp; Events</div>
+                    <div class="news-slider">
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-joins-hands-with-ath-pavura-awards.jpg" data-pagespeed-url-hash="851003540" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance Join Hands with Ath Pavura</h3></div>
+                                    <div class="news-text">
+
+Offers 1Million Personal Accident Cover for Selected entrepreneurs
+Sri Lanka Insurance has partnered with Ath Pavura, Sri Lanka’s first television show to promote social entrepreneurship and impact investment with the aim of encouraging and stre...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('9')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-suba-pathum.jpg" data-pagespeed-url-hash="1760756961" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>SLIC Suba Pathum Scholarship 2018 awards 300 Scholarships for school children island wide</h3></div>
+                                    <div class="news-text">
+
+Sri Lanka Insurance, contributing towards the future generation of Sri Lanka launched ‘Suba Pathum – National Scholarship Scheme’ which rewards 300 achievers who excel in Grade 5 Scholarship, G.C.E. Ordinary Level and G.C.E. Advanced Level examin...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('6')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-opens-a-new-branch.jpg" data-pagespeed-url-hash="1493313129" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance opens a new branch in Kottawa</h3></div>
+                                    <div class="news-text">
+
+Colombo 29th April 2019: Sri Lanka Insurance strengthens its presence island wide further with the opening of a branch in the heart of Kottawa urban area.
+The new SLIC branch is located in No 129/10, 1st Floor, Highlevel Road Kottawa providing t...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('4')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/sri-lanka-insurance-the-official-insurance-partner-for-walk-of-warriors.jpg" data-pagespeed-url-hash="1271278473" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance the ‘Official Insurance Partner’ for ‘Walk of Warriors’</h3></div>
+                                    <div class="news-text">Colombo 28th May 2019: Sri Lanka Insurance becomes the ‘Official Insurance Partner’ for the ‘Walk of Warriors’ the walk organized by the Sri Lanka Army’s Air Mobile Brigade in celebrating their 25th anniversary and 10 years of war victory. The walk c...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('3')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/article-1.jpg" data-pagespeed-url-hash="3225573642" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance awarded the most valuable General Insurance Brand by Brands Finance 2019</h3></div>
+                                    <div class="news-text">
+The brand’s dual strength is that it is owned by the Government but plays like the private sector
+Customer service has played a key role in strengthening the brand.
+
+Colombo 22nd May 2019: Sri Lanka Insurance General Insurance category is a well...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('1')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/article-4.jpg" data-pagespeed-url-hash="4109073405" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>SLIC Badminton players dominates Nationalized Service Badminton Association rankings</h3></div>
+                                    <div class="news-text">
+
+SLIC players achieved 3 ranks in the top 10 rankings including No 1 and No 2
+Colombo 13th May 2019: Sri Lanka Insurance Badminton players, Asanka Perera ranked No 1 while Sanjaya Dahanayake ranked No 2 and Nalin Perera ranked no 7 in the latest...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('2')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/top-sales-achievers-slic.jpg" data-pagespeed-url-hash="1381341953" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Recognising top sales achievers – Sri Lanka Insurance holds Life Congress 2018</h3></div>
+                                    <div class="news-text">
+
+ 
+The SLIC Life Congress 2018 was held at the Shangri-La’s Hambantota Golf Resort &amp; Spa from 08th to 09th November 2018 amidst of much splendor to honour  the top performers in the Life Insurance category.
+Sri Lanka Insurance Life Congress...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('5')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-new-branch-opening_ceremony.jpg" data-pagespeed-url-hash="659014227" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance opens its 152nd Branch at Ruwanwella.</h3></div>
+                                    <div class="news-text">
+
+Sri Lanka Insurance unveiled its latest branch in Ruwanwella on 15th October 2018, bringing its expertise to the residents as a part of its expansion to widen its geographical footprint across the island. The newly opened branch is located at No...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('10')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-call-to-donate.jpg" data-pagespeed-url-hash="1401820380" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>‘Call to Donate’ is back again – a CSR initiative taken by Sri Lanka Insurance</h3></div>
+                                    <div class="news-text">
+
+For every missed call given to 1357 Sri Lanka Insurance donate Rs.10/- to the Pediatric ward of Apeksha Cancer Hospital
+Committed towards the protection and well being of the society, the nation’s insurance provider Sri Lanka Insurance launched...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('8')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-new-branch-opening_ceremony.jpg" data-pagespeed-url-hash="659014227" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance opened 2 New Branches within 2 Weeks</h3></div>
+                                    <div class="news-text">
+
+Sri Lanka Insurance opened 2 new branches during last 2 weeks at Kotikawaththa and Yakkala.
+The insurance giant, Sri Lanka Insurance opened their newest branch in Kotikawatta on 25th September 2018 followed by the branch opening at Yakkala on 17...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('7')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="slider-controler">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>	</div>
+    <footer>
+    <div class="footer-cover">
+        <div class="footer-links">
+            <div class="container custom_container">
+                <div class="row">
+                    <div class="col-md-12 key-links">
+                        <div class="footer-heading">Key Links</div>
+                        <ul>
+                                                                                            <li><a href="http://52.79.122.10/slic_front/public/en/footer-menu/careers">Careers</a></li>
+                                                                                            <li><a href="http://52.79.122.10/slic_front/public/en/footer-menu/csr">Corporate Social Responsibility</a></li>
+                                                                                            <li><a href="http://52.79.122.10/slic_front/public/en/footer-menu/contact-us">Contact Us</a></li>
+                                                                                            <li><a href="http://52.79.122.10/slic_front/public/en/footer-menu/news-events">News &amp; Events</a></li>
+                                                                                            <li><a href="http://52.79.122.10/slic_front/public/en/footer-menu/branch-locator">Branch Locator</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4 bottom-margin">
+<div class="footer-heading">Hotlines</div>
+<div class="icon-links"><a class="footer-go-link no-arrow footer-phone" href="tel:+94112357357"><span class="footer-icons"><img src="assets/images/phone-call.png" data-pagespeed-url-hash="2004916099" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></span> +94 11 235 7357</a></div>
+<div class="icon-links"><a class="footer-go-link no-arrow footer-phone" href="tel:+94117357357"><span class="footer-icons"><img src="assets/images/phone-call.png" data-pagespeed-url-hash="2004916099" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></span> +94 11 735 7357</a></div>
+<div class="icon-links"><a class="footer-go-link no-arrow footer-phone" href="tel:+94115357357"><span class="footer-icons"><img src="assets/images/phone-call.png" data-pagespeed-url-hash="2004916099" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></span> +94 11 535 7357</a></div>
+<div class="icon-links"><a class="footer-go-link no-arrow footer-phone" href="tel:+94114357357"><span class="footer-icons"><img src="assets/images/phone-call.png" data-pagespeed-url-hash="2004916099" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></span> +94 11 435 7357</a></div>
+<div class="icon-links"><a class="footer-go-link no-arrow footer-phone" href="mailto: email@srilankainsurance.com"><span class="footer-icons"><img src="assets/images/paper-plane.png" data-pagespeed-url-hash="3576668079" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></span> email@srilankainsurance.com</a></div>
+</div>
+<div class="col-md-4 bottom-margin">
+<div class="footer-heading">Head Office</div>
+<p class="address"><span class="footer-icons"><img src="assets/images/slic-building.png" data-pagespeed-url-hash="169496510" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></span>Rakshana Mandiraya<br/>No.21, <br/>Vauxhall Street, <br/>Colombo 02, <br/> Sri Lanka</p>
+</div>                    <div class="col-md-4 bottom-margin">
+                        <div class="footer-heading">Get social with us on</div>
+                        <ul class="social-media-icons">
+                            <li><a href="#" class="social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="social-icon"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bottom_footer">&copy; All rights reserved. Sri Lanka Insurance. Solution by <a href="http://www.affno.com/" target="_blank">Affno</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="chat-icon"><i class="fa fa-comments" aria-hidden="true"></i></div>    <script src="http://52.79.122.10/slic_front/public/assets/js/jquery-3.3.1.min.js"></script>
+<script src="http://52.79.122.10/slic_front/public/assets/js/modernizr.js"></script>
+<!-- Modernizr -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://52.79.122.10/slic_front/public/assets/js/bootstrap.min.js"></script>
+<script src="http://52.79.122.10/slic_front/public/assets/js/wow.js"></script>
+<script type="text/javascript" src="http://52.79.122.10/slic_front/public/assets/js/slick.min.js"></script>
+<script type="text/javascript" src="http://52.79.122.10/slic_front/public/assets/js/cbpHorizontalMenu.min.js"></script>
+<script type="text/javascript" src="http://52.79.122.10/slic_front/public/assets/js/index.js"></script>
+
+
+<script type="text/javascript">$('#level1').change(function(){var id=$(this).val();$.ajax({type:"GET",url:base_url+"/supportmenu/"+id,dataType:'json',success:function(res){$('#level2').html(' ');res.forEach(function(e,i){$('#level2').append($('<option></option>').val(e.mainDetails.id).text(e.mainDetails.title));});},error:function(request,status,error){console.log("ajax call went wrong:"+request.responseText);}});});$('#submitButton').click(function(){$.ajax({url:base_url+'/searchservice',type:'post',data:$('form#searchService').serialize(),dataType:'json',success:function(data){window.location.href=data.url;},error:function(request,status,error){console.log("ajax call went wrong:"+request.responseText);}});});</script>    <div class="modal fade news-modal" id="newsModalReadMore" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title news-title" id="exampleModalLongTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="newsbody"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>$(document).ready(function(){$('.footer-icons img').attr('src',function(index,src){return base_url+'/'+this.getAttribute('src');});});</script>
+
+
+<script>function newsDetailsView(id){$.ajax({type:"GET",url:base_url+"/newsDetailsView/"+id,dataType:'json',success:function(res){$('#exampleModalLongTitle').text(res.title);$('.modal-body .newsbody').html(res.body);appendBaseUrl();$('#newsModalReadMore').modal('show');},error:function(request,status,error){console.log("ajax call went wrong:"+request.responseText);}});}function appendBaseUrl(){$('.newsbody img').attr('src',function(index,src){return base_url+'/'+this.getAttribute('src');});}</script>
+ </body>
+</html>

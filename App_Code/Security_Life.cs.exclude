@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Collections;
+using System.Text;
+using System.Security.Cryptography;
+using System.Collections.Specialized;
+
+//namespace secureacceptance
+//{
+    //public static class Security
+    public static class Security_Life
+    {
+
+        private const String SECRET_KEY = "b29fb65eb0464dabab635504b9e0bed64818f7927f6c4a6da475c2abc29f524f418e0d7cf1264df4884f6eaa76b8a2107d0c661b4bf14604817babbecf4743240d283897bb92470db37e5e485e87bf0f8b31a811442040b78da3293e267c5c7384ea1d5444c246ddacb59fddff8509065fdb6606bff14e20b463e02471cb8cc7";
+        //old
+        //private const String SECRET_KEY = "61d773f9d234496f95bf1300cb7684ddb8aca118489d42f9bcf60a11e2a02532eb6f4ef6c8764ee8bd901ee737d3433f5d8ce727f1a2444fbd189d5642b8eab2f2c8ae315d614bcebcf4e79c016621d3b78d2fca9b53427d8cc7cda2087d3970bf6a1f7075d84616bdf02f65e4256525bbdb7369eef5479faf975a6cefc16846";
+
+
+
+    ////private const String SECRET_KEY = "a7c27c90b9f4419e95978bc08819c87b19d745a06b104f6590262ac03c8feade28c50aab1a38452a8080b865bc23ffa7461481fac9974c88981b3888808d78a0042b67aadb6a4c4ea1a8d4af8843c0a770c4748c50894adba6304a0f16237ac51b286644845c4bfbaa35b1f47e8a7dab8ea3a41add10436099dd5ccee1588809";
+
+    public static String sign(IDictionary<string, string> paramsArray)  {
+            return sign(buildDataToSign(paramsArray), SECRET_KEY);
+        }
+
+        private static String sign(String data, String secretKey) {
+            UTF8Encoding encoding = new System.Text.UTF8Encoding();
+            byte[] keyByte = encoding.GetBytes(secretKey);
+
+            HMACSHA256 hmacsha256 = new HMACSHA256(keyByte);
+            byte[] messageBytes = encoding.GetBytes(data);
+            return Convert.ToBase64String(hmacsha256.ComputeHash(messageBytes));
+        }
+
+        private static String buildDataToSign(IDictionary<string,string> paramsArray) {
+            String[] signedFieldNames = paramsArray["signed_field_names"].Split(',');
+            IList<string> dataToSign = new List<string>();
+
+	        foreach (String signedFieldName in signedFieldNames)
+	        {
+	             dataToSign.Add(signedFieldName + "=" + paramsArray[signedFieldName]);
+	        }
+
+            return commaSeparate(dataToSign);
+        }
+
+        private static String commaSeparate(IList<string> dataToSign) {
+            return String.Join(",", dataToSign);                         
+        }
+    }
+//}

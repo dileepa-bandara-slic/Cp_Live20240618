@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ===============
+   Normalize.css
+   =============== */
+   
+   @import 'normalize.css';
+   
+/*******************/
+a:hover {
+	text-decoration:none;
+	}
+body {
+	padding-top: 10px;
+   }
+.body2 {
+	padding-top: 70px;
+   }
+.container {
+	width: 940px;
+	margin: 0 auto;
+	height: auto;
+	background:#FFFFFF;
+	font-size: 12px;
+	}
+.container-nav {
+	width: 940px;
+	margin: 0 auto;
+	}
+	
+/*******************/
+.row.header {
+	position: relative;
+	width: 940px;
+	height: auto;
+	margin: 0 auto;
+	}
+#banner {
+	position: absolute;
+	width: 940px;
+	height: 425px;
+	margin:0 auto;
+	padding: 0;
+	}
+#login {
+	position: absolute;
+	width: 200px;
+	height: 300px;
+	top: 0;
+	right: 0;
+	background: #eeeeee;
+	opacity: 0.9;
+	z-index:100;
+	}
+#login form > button {
+	box-shadow: 2px 4px 5px 0px rgba(153,153,153,1);
+	}
+#logout {
+	width: 200px;
+	height: auto;
+	margin: 0 0 0 740px;
+	}
+#logout form > button {
+	box-shadow: 2px 4px 5px 0px rgba(153,153,153,1);
+	padding-left: 100px;
+	}
+
+/*******************/
+.row.middle {
+	position: relative;
+	width: 940px;
+	height: auto;
+	margin: 0 auto;
+	padding-top: 450px;
+    padding-bottom: 100px;
+	}
+#life {
+	width: 425px;
+	height: 200px;
+	float:left;
+	padding: 0;
+	}
+#life .btn.btn-block{
+	width: 425px;
+	height: 100px;
+	}
+#general {
+	width: 425px;
+	height: 200px;
+	float:right;
+	padding: 0;
+	}
+#general .btn.btn-block{
+	width: 425px;
+	height: 100px;
+	}
+/******************/
+.row.footer {
+	position: fixed;
+	width: 940px;
+	height: auto;
+	margin: 0 auto;
+	}
+.container-fluid.footer_c {
+	position: relative;
+	width: 940px;
+	height: auto;
+	margin: 0 auto;
+	}
+.container-fluid.footer_c ul,li {
+	padding: 5px 15px 5px 0;
+	}
+.row.footer #fb {
+	padding: 5px 15px 5px 70px;
+	}
+
+.row.footer #ssl {
+	padding: 5px 15px 5px 70px;
+	}
+
+/******************/
+/*** general insurance page **/
+.btn_gen1 {
+	width: 400px;
+  	color: #ffffff;
+	border: none;
+  	font-size: 24px;
+  	background: #1d679b;
+  	padding: 26px 30px 25px 8px;
+  	text-decoration: none;
+}
+.btn_gen1:hover {
+  	background: #C71233;
+  	text-decoration: none;
+}
+.btn_gen2 {
+	width: 400px;
+	margin-left: 70px;
+  	color: #ffffff;
+	border: none;
+  	font-size: 24px;
+  	background: #1d679b;
+  	padding: 26px 30px 25px 8px;
+  	text-decoration: none;
+}
+.btn_gen2:hover {
+  	background: #C71233;
+  	text-decoration: none;
+}

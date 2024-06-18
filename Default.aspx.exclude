@@ -1,0 +1,978 @@
+﻿<%@ Page Title="Sri Lanka Insurance - Client Portal" Language="C#" MasterPageFile="~/Home.master" AutoEventWireup="true"
+    CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+  
+<%--    <link rel="stylesheet" href="assets/css/bootstrap_corp.min.css" />--%>
+
+
+    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <style>
+      
+
+           @media screen and (max-width: 992px)
+        {
+            p, .btn, input, div, span, h4
+            {
+                font-size: 100%;
+                font-family: Tahoma;
+            }
+            h1
+            {
+                font-size: 40px;
+                font-family: Tahoma;
+            }
+            h2
+            {
+                font-size: 35px;
+                font-family: Tahoma;
+            }
+            h3
+            {
+                font-size: 30px;
+                font-family: Tahoma;
+            }
+            .divSmall
+            {
+                display: none;
+            }
+            .divLarge
+            {
+                display: block;
+            }
+        }
+        
+        @media screen and (max-width: 768px)
+        {
+            p, .btn, input, div, span, h4
+            {
+                font-size: 98%;
+                font-family: Tahoma;
+            }
+            h1
+            {
+                font-size: 30px;
+                font-family: Tahoma;
+            }
+            h2
+            {
+                font-size: 25px;
+                font-family: Tahoma;
+            }
+            h3
+            {
+                font-size: 20px;
+                font-family: Tahoma;
+            }
+            .divSmall
+            {
+                display: block;
+            }
+            .divLarge
+            {
+                display: none;
+            }
+        }
+        
+        
+        @media screen and (min-width: 992px)
+        {
+            p, .btn, input, div, span, h4
+            {
+                font-size: 100%;
+                font-family: Tahoma;
+            }
+            h1
+            {
+                font-size: 40px;
+                font-family: Tahoma;
+            }
+            h2
+            {
+                font-size: 35px;
+                font-family: Tahoma;
+            }
+            h3
+            {
+                font-size: 30px;
+                font-family: Tahoma;
+            }
+            .divSmall
+            {
+                display: none;
+            }
+            .divLarge
+            {
+                display: block;
+            }
+        
+        }
+        
+        @media screen and (min-width: 1200px)
+        {
+            p, .btn, input, div, span, h4
+            {
+                font-size: 100%;
+                font-family: Tahoma;
+            }
+            h1
+            {
+                font-size: 40px;
+                font-family: Tahoma;
+            }
+            h2
+            {
+                font-size: 35px;
+                font-family: Tahoma;
+            }
+            h3
+            {
+                font-size: 30px;
+                font-family: Tahoma;
+            }
+            .divSmall
+            {
+                display: none;
+            }
+            .divLarge
+            {
+                display: block;
+            }
+        }
+        
+        
+        #footerContent1
+        {
+            border-top: 0px;
+        }
+        
+        #footerContentDiv
+        {
+            text-align: left;
+            line-height: 20px;
+        }
+        #div1
+        {
+            position: relative;
+            height: 20%;
+            min-height: 200px;
+            width: 50%;
+        }
+        
+        #div2
+        {
+            width: 25%;
+            position: absolute;
+            left: 75%;
+            min-height: 200px;
+            z-index: 100;
+            opacity: 0.9;
+            background: #eeeeee;
+            font-size: 80%;
+        }
+        
+        #div3
+        {
+            width: 25%;
+            position: absolute;
+            left: 75%;
+            min-height: 20px;
+            z-index: 100;
+            opacity: 0.9;
+            background: #eeeeee;
+            font-size: 80%;
+        }
+
+           .carousel-inner > .item > img, .carousel-inner > .item > a > img
+        {
+            width: 100%;
+            margin: auto;
+        }
+
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+       <%-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>--%>
+
+   <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+  
+    <script type="text/javascript">
+    //document.body.onload = function () { noSSL(); }
+
+        //$(document).ready(function () {
+        //    alert("test");
+            
+        });
+</script>
+
+
+
+<script type="text/javascript">
+    //const urlParams = new URLSearchParams(window.location.search);
+   // const myParam = urlParams.get('dev');
+    // response.write(myParam);
+
+    //var foo = getUrlParameter('dev');
+    var str = window.location.href;
+    var str2 = str.substring(str.length - 6, str.length);
+    if (str2 == "mobile") {
+        
+         //window.alert("Please use your App Login credentials to login to Customer portal.");
+        $(window).load(function()
+        {
+            $('#myModal').modal('show');
+            
+        });
+    }
+</script>
+
+
+<script>
+  
+</script>
+
+
+
+<div class="container">
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"> Customer Portal Login </h4>
+        </div>
+        <div class="modal-body">
+          <p>Please use your SLIC Customer App Login credentials (Username / Password) to login to Customer portal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+ <div class="home-banner">
+    <div class="home-banner-text wow fadeInLeft" data-wow-delay="1s">
+        <span>Welcome to the world of</span><br>Sri Lanka Insurance
+    </div>
+    <div class="home-slider">
+        <%--<div class="slider-item slider-item1 wow fadeIn" data-wow-delay="0.2s" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/banner-image02.jpg);">
+            <div class="slideinimage slideinimage1 wow fadeInDown" data-wow-delay="0.4s"><img src="http://52.79.122.10/slic_front/public/assets/images/banner-image-add1.png" data-pagespeed-url-hash="3780262345" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+            <div class="slideinimage slideinimage2 wow fadeInUp" data-wow-delay="0.6s"><img src="http://52.79.122.10/slic_front/public/assets/images/banner-image-add2.png" data-pagespeed-url-hash="4074762266" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+            <div class="slideinimage slideinimage3 wow fadeInLeft" data-wow-delay="0.8s"><img src="http://52.79.122.10/slic_front/public/assets/images/banner-image-add3.png" data-pagespeed-url-hash="74294891" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+      
+        </div>--%>
+
+                    <div class="row">
+              <%--  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                </div>--%>
+               <%-- <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">--%>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-top: 50px">
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
+                               <%-- <asp:Login ID="LoginUser" runat="server" OnAuthenticate="LoginUser_Authenticate"
+                                    EnableViewState="False" FailureText="Your login attempt was not successful. Please visit below link if you have forgotten password.">--%>
+                                  
+                                <asp:Login ID="LoginUser" runat="server" OnAuthenticate="LoginUser_Authenticate_1">
+                                <LayoutTemplate>
+                                        <div id="div2" class="divLarge" align="center" style="font-size: 100%">
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-xs-1 col-sm-1 visible-sm col-md-1 visible-md col-lg-1 visible-lg">
+                                                </div>
+                                                <div class="col-xs-12 visible-xs col-sm-10 visible-sm col-md-10 visible-md col-lg-10 visible-lg">
+                                                    <asp:TextBox ID="UserName" type="text" runat="server" MaxLength="15" AutoComplete="on"
+                                                        class="form-control input-sm" placeholder="Username" ValidationGroup="Login1"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Required"
+                                                        ControlToValidate="username" ValidationGroup="Login1" Font-Bold="True" Font-Names="Calibri"
+                                                        Font-Size="8pt" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                </div>
+                                                <div class="col-xs-1 col-sm-1 visible-sm col-md-1 visible-md col-lg-1 visible-lg">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-1 col-sm-1 visible-sm col-md-1 visible-md col-lg-1 visible-lg">
+                                                </div>
+                                                <div class="col-xs-12 visible-xs col-sm-10 visible-sm col-md-10 visible-md col-lg-10 visible-lg">
+                                                    <asp:TextBox ID="Password" runat="server" class="form-control input-sm" TextMode="Password"
+                                                        MaxLength="15" placeholder="Password" ValidationGroup="Login1"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Required"
+                                                        ControlToValidate="Password" ValidationGroup="Login1" Font-Bold="True" Font-Names="Calibri"
+                                                        Font-Size="8pt" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                </div>
+                                                <div class="col-xs-1 col-sm-1 visible-sm col-md-1 visible-md col-lg-1 visible-lg">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-1 col-sm-1 visible-sm col-md-1 visible-md col-lg-1 visible-lg">
+                                                </div>
+                                                <div class="col-xs-12 visible-xs col-sm-10 visible-sm col-md-10 visible-md col-lg-10 visible-lg">
+                                                    <asp:Button ID="LoginButton" CssClass ="btn btn-primary btn-block" runat="server" CommandName="Login" 
+                                                        Text="Login" ValidationGroup="Login1" style="left: 0px; top: 5px"/>
+
+<%--                                                           <asp:Button ID="LoginButton" CssClass ="btn btn-primary" runat="server" CommandName="Login"
+                                                        Text="Login" ValidationGroup="Login1" />--%>
+                                                    <asp:PlaceHolder runat="server" ID="logn" Visible="false">
+                                                        <p class="img-rounded btn-danger" style="background-color: #F54947; padding: 5px;">
+                                                            <asp:Label ID="Label1" runat="server" Font-Bold="true" ForeColor="#FFFFFF"></asp:Label></p>
+                                                    </asp:PlaceHolder>
+                                                </div>
+                                                <div class="col-xs-1 col-sm-1 visible-sm col-md-1 visible-md col-lg-1 visible-lg">
+                                                </div>
+                                            </div>
+
+                                              <div class="row">
+                                              <asp:PlaceHolder ID="plh_error" runat="server" Visible = "false">
+                                                  <div class="col-xs-12 visible-xs col-sm-12 visible-sm col-md-12 visible-md col-lg-12 visible-lg"><br/>
+                                            <p class=" btn-danger" style="background-color:#F54947; padding:0px;"><asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal></p>
+                                                </div></asp:PlaceHolder>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xs-12 visible-xs col-sm-12 visible-sm col-md-12 visible-md col-lg-12 visible-lg">
+                                                    <asp:HyperLink ID="RegisterHyperLink" CssClass="btn btn-link" runat="server" align="center"
+                                                        EnableViewState="false" NavigateUrl="~/Register.aspx"><img alt='' src="images/reguser.png" /> Register for service</asp:HyperLink>
+                                                </div>
+                                            </div>
+
+                                           
+
+                                            <div class="row">
+                                                <div class="col-xs-1 col-sm-1 visible-sm col-md-1 visible-md col-lg-1 visible-lg">
+                                                </div>
+                                                <div class="col-xs-12 visible-xs col-sm-10 visible-sm col-md-10 visible-md col-lg-10 visible-lg">
+                                                    <small>
+                                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ForgotPassword.aspx">Forgot Password?</asp:HyperLink></small>
+                                                            <asp:HiddenField ID="hdn_server" runat="server" ClientIDMode="Static"  />
+                                                            <asp:HiddenField ID="hdn_client" runat="server" ClientIDMode="Static" />
+                                                            <asp:HiddenField ID="hdn_pwd_sbmt"  runat="server" ClientIDMode="Static"/>
+                                                </div>
+                                                <div class="col-xs-1 col-sm-1 visible-sm col-md-1 visible-md col-lg-1 visible-lg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="div3" class="divSmall" align="center" style="font-size: 100%">
+                                            <div class="row">
+                                                <div class="col-xs-12 visible-xs col-sm-12 visible-sm col-md-12 visible-md col-lg-12 visible-lg">
+                                                    <a href="Login.aspx"><b>Login </b></a><b>| </b><a href="Register.aspx"><b>Register</b></a>
+                                                </div>
+                                            </div>
+                                    </LayoutTemplate>
+                                    </asp:Login>
+                           <%--     </asp:Login>--%>
+                            </AnonymousTemplate>
+                        </asp:LoginView>
+                        <ol class="carousel-indicators hidden">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+                      
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active" >
+                                <img src="images/banner/banner-image02_corp.jpg" alt="Chania" style="width: 100%">
+                            </div>
+                    <%--        <div class="item">
+                                <img src="images/banner/banner-image02_corp.jpg" alt="Chania" style="width: 100%">
+                            </div>
+                            <div class="item">
+                                <img src="images/banner/banner-image02_corp.jpg" alt="Flower" style="width: 100%">
+                            </div>
+                            <div class="item">
+                                <img src="images/banner/banner-image02_corp.jpg" alt="Flower" style="width: 100%">
+                            </div>--%>
+                            <%--<div class="col-xs-2">
+                            </div>--%>
+                        </div>
+
+                       <%-- <div class="slider-item slider-item1 wow fadeIn" data-wow-delay="0.2s" style="background-image:url(images/banner/banner-image02_corp.jpg);">
+                        <div class="slideinimage slideinimage1 wow fadeInDown" data-wow-delay="0.4s"><img src="images/banner/banner-image02_corp.jpg" data-pagespeed-url-hash="3780262345" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+                        <div class="slideinimage slideinimage2 wow fadeInUp" data-wow-delay="0.6s"><img src="images/banner/banner-image02_corp.jpg" data-pagespeed-url-hash="4074762266" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+                        <div class="slideinimage slideinimage3 wow fadeInLeft" data-wow-delay="0.8s"><img src="images/banner/banner-image02_corp.jpg" data-pagespeed-url-hash="74294891" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></div>
+      --%>
+                     </div>
+
+                    </div>
+              <%--  </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                </div>--%>
+            </div>
+
+    </div>
+<%--</div>  --%>  
+        <div class="quick-links-wrapper">
+    <div class="container custom_container">
+        <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="individual/travel-insurance/travel-protect" class="ql-block-inner">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/affordability.png);"></div>
+                    <div class="ql-link-name">TRAVEL PROTECT INSURANCE</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="individual/motor-insurance/motor-plus" class="ql-block-inner">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/anchor.png);"></div>
+                    <div class="ql-link-name">MOTOR INSURANCE</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="individual/health-insurance/annual-medical-plan" class="ql-block-inner">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/cover.png);"></div>
+                    <div class="ql-link-name">HEALTH INSURANCE</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="individual/home-insurance/home-protect-insurance" class="ql-block-inner">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/house.png);"></div>
+                    <div class="ql-link-name">HOME PROTECT INSURANCE</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="https://www.srilankainsurance.com/agenworks/Signin.asp" class="ql-block-inner" target="_blank">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/pay.png);"></div>
+                    <div class="ql-link-name">BEE ADVISOR</div>
+                </a>
+            </div>
+                        <div class="col-sm-4 col-md-4 col-lg-2 ql-block-wrapper wow fadeInDown" data-wow-delay="0.2s">
+                <a href="https://www.srilankainsurance.net/" class="ql-block-inner" target="_blank">
+                                        <div class="ql-icon" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/products/warranty.png);"></div>
+                    <div class="ql-link-name">ONLINE SERVICES</div>
+                </a>
+            </div>
+                    </div>
+    </div>
+</div>    <div class="help-and-supports">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 howmaysup wow fadeIn" data-wow-delay="0.2s">
+
+<button class="btn-def wow fadeInLeft" data-wow-delay="0.7s" id="submitButton">Go</button>
+            </div>
+            <div class="col-md-6 howmaysup2">
+                <div class="row">
+                                                            <div class="col-md-6 link-block wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="link-block-inner">
+                            <div class="link-main">LOYALTY REWARDS</div>
+
+                            <p><a class="readmore-link" href="#">Application Form</a></p>
+                        </div>
+                    </div>
+                                        <div class="col-md-6 link-block wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="link-block-inner">
+                            <div class="link-main">GARAGE REGISTRATION</div>
+
+                            <p><a class="readmore-link" href="images/pdf/garage.pdf">Application Form</a></p>
+                        </div>
+                    </div>
+                                        <div class="col-md-6 link-block wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="link-block-inner">
+                            <div class="link-main">LIFE CASHLESS OPERATION</div>
+
+                            <p><a class="readmore-link" href="https://www.srilankainsurance.com/Lifehealth/CashlessPayment/Login.aspx" target="_blank" rel="noopener noreferrer">Account Login</a></p>
+                        </div>
+                    </div>
+                                        <div class="col-md-6 link-block wow fadeInDown" data-wow-delay="0.2s">
+                        <div class="link-block-inner">
+                            <div class="link-main">SUBAPATHUM SCHOLARSHIP</div>
+
+                            <p><a class="readmore-link" href="https://www.srilankainsurance.com/SubaPathum_Web/Subapathum_Customer_Web/Login.aspx" target="_blank" rel="noopener noreferrer">Account Login</a></p>
+                        </div>
+                    </div>
+                           
+                        <div class="col-md-12 link-block wow fadeInDown" data-wow-delay="1.6s">
+                            <div class="promotion-banner-inner">
+                                <a href="#"><img src="http://52.79.122.10/slic_front/public/assets/images/promotion-banner.jpg" data-pagespeed-url-hash="2902527278" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></a>
+                            </div>
+                        </div>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    <section>
+    <div class="featured-products">
+        <div class="container custom_container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading wow fadeInDown" data-wow-delay="0s">Most Popular Products</div>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/investment-products/divi-thilina-protection-plan" class="mpp-block-inner mpp-block-inner1 divi_thilina_protection_plan_icon">
+                                                
+                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Divi Thilina Protection Plan</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/motor-insurance/motor-plus" class="mpp-block-inner mpp-block-inner1 motor_plus_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Motor Plus</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/home-insurance/home-protect-insurance" class="mpp-block-inner mpp-block-inner1 home_protect_insurance_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Home Protect Insurance</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/professional-insurance/sri-lanka-insurance-gaurawa" class="mpp-block-inner mpp-block-inner1 sri_lanka_insurance_gaurawa_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Sri Lanka Insurance Gaurawa</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/retirement-products/freedom-retirement-plan" class="mpp-block-inner mpp-block-inner1 freedom_retirement_plan_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Freedom Retirement Plan</span></div></div>
+                    </a>
+                </div>
+                                <div class="col-sm-6 col-md-4 mpp-block wow fadeIn" data-wow-delay="0.2s">
+                                        <a href="http://52.79.122.10/slic_front/public/en/personal/health-insurance/annual-medical-plan" class="mpp-block-inner mpp-block-inner1 annual_medical_plan_icon">
+                                                                                <img src="http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg" data-pagespeed-url-hash="1932238612" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                <div> <div class="mpp-heading wow fadeInLeft" data-wow-delay="0.3s"><span>Annual Medical Plan</span></div></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    <section>
+        <div class="cta-section" style="background-image:  url(http://52.79.122.10/slic_front/public/assets/images/cta-bg1.png)  ;">
+        <div class="container custom_container">
+            <div class="row">
+                <div class="col-md-7 cta-text">
+
+
+                    <h3><strong>Choose the best Insurance plan with Sri Lanka Insurance</strong></h3>
+<p>Contact us now and we will be glad to assist you.</p>
+                    <a class="btn-def btn-rev wow fadeInLeft" data-wow-delay="0.5s" href="http://52.79.122.10/slic_front/public/en/footer-menu/contact-us ">Contact us</a>
+                    <span class="wow fadeInLeft" data-wow-delay="0.6s" style="color: #ffffff; display: inline-block;">or</span> 
+                    <a class="btn-def btn-rev wow fadeInLeft" data-wow-delay="0.7s" href="http://52.79.122.10/slic_front/public/en/footer-menu/branch-locator ">Find a branch</a>
+                </div>
+                <div class="col-md-5 cta-image-block wow fadeInDown" style="background-image:url(http://52.79.122.10/slic_front/public/assets/images/cta-image.jpg)">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="contactModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="http://52.79.122.10/slic_front/public/contact " method="post">
+                    <input type="hidden" name="_token" value="ShZnaPusCMOYUQJSNL4EoKEo04myzhGFkxR3GdK4">
+                    <div class="form-group">
+                        <label for="fname">Full Name:</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Contact no:</label>
+                        <input type="text" class="form-control" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fname">Message:</label>
+                        <textarea name="message" class="form-control" rows="10" name="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6LfQ7qoUAAAAADuTO7Aqgms3Ar08-zYOnMc16B4_"></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>    <section>
+    <div class="news-and-events">
+        <div class="container custom_container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading wow fadeInDown" data-wow-delay="0s">News &amp; Events</div>
+                    <div class="news-slider">
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-joins-hands-with-ath-pavura-awards.jpg" data-pagespeed-url-hash="851003540" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance Join Hands with Ath Pavura</h3></div>
+                                    <div class="news-text">
+
+Offers 1Million Personal Accident Cover for Selected entrepreneurs
+Sri Lanka Insurance has partnered with Ath Pavura, Sri Lanka’s first television show to promote social entrepreneurship and impact investment with the aim of encouraging and stre...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('9')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-suba-pathum.jpg" data-pagespeed-url-hash="1760756961" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>SLIC Suba Pathum Scholarship 2018 awards 300 Scholarships for school children island wide</h3></div>
+                                    <div class="news-text">
+
+Sri Lanka Insurance, contributing towards the future generation of Sri Lanka launched ‘Suba Pathum – National Scholarship Scheme’ which rewards 300 achievers who excel in Grade 5 Scholarship, G.C.E. Ordinary Level and G.C.E. Advanced Level examin...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('6')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-opens-a-new-branch.jpg" data-pagespeed-url-hash="1493313129" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance opens a new branch in Kottawa</h3></div>
+                                    <div class="news-text">
+
+Colombo 29th April 2019: Sri Lanka Insurance strengthens its presence island wide further with the opening of a branch in the heart of Kottawa urban area.
+The new SLIC branch is located in No 129/10, 1st Floor, Highlevel Road Kottawa providing t...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('4')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/sri-lanka-insurance-the-official-insurance-partner-for-walk-of-warriors.jpg" data-pagespeed-url-hash="1271278473" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance the ‘Official Insurance Partner’ for ‘Walk of Warriors’</h3></div>
+                                    <div class="news-text">Colombo 28th May 2019: Sri Lanka Insurance becomes the ‘Official Insurance Partner’ for the ‘Walk of Warriors’ the walk organized by the Sri Lanka Army’s Air Mobile Brigade in celebrating their 25th anniversary and 10 years of war victory. The walk c...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('3')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/article-1.jpg" data-pagespeed-url-hash="3225573642" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance awarded the most valuable General Insurance Brand by Brands Finance 2019</h3></div>
+                                    <div class="news-text">
+The brand’s dual strength is that it is owned by the Government but plays like the private sector
+Customer service has played a key role in strengthening the brand.
+
+Colombo 22nd May 2019: Sri Lanka Insurance General Insurance category is a well...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('1')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/article-4.jpg" data-pagespeed-url-hash="4109073405" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>SLIC Badminton players dominates Nationalized Service Badminton Association rankings</h3></div>
+                                    <div class="news-text">
+
+SLIC players achieved 3 ranks in the top 10 rankings including No 1 and No 2
+Colombo 13th May 2019: Sri Lanka Insurance Badminton players, Asanka Perera ranked No 1 while Sanjaya Dahanayake ranked No 2 and Nalin Perera ranked no 7 in the latest...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('2')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/top-sales-achievers-slic.jpg" data-pagespeed-url-hash="1381341953" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Recognising top sales achievers – Sri Lanka Insurance holds Life Congress 2018</h3></div>
+                                    <div class="news-text">
+
+ 
+The SLIC Life Congress 2018 was held at the Shangri-La’s Hambantota Golf Resort &amp; Spa from 08th to 09th November 2018 amidst of much splendor to honour  the top performers in the Life Insurance category.
+Sri Lanka Insurance Life Congress...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('5')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-new-branch-opening_ceremony.jpg" data-pagespeed-url-hash="659014227" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance opens its 152nd Branch at Ruwanwella.</h3></div>
+                                    <div class="news-text">
+
+Sri Lanka Insurance unveiled its latest branch in Ruwanwella on 15th October 2018, bringing its expertise to the residents as a part of its expansion to widen its geographical footprint across the island. The newly opened branch is located at No...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('10')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-call-to-donate.jpg" data-pagespeed-url-hash="1401820380" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>‘Call to Donate’ is back again – a CSR initiative taken by Sri Lanka Insurance</h3></div>
+                                    <div class="news-text">
+
+For every missed call given to 1357 Sri Lanka Insurance donate Rs.10/- to the Pediatric ward of Apeksha Cancer Hospital
+Committed towards the protection and well being of the society, the nation’s insurance provider Sri Lanka Insurance launched...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('8')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="news-block">
+                            <div class="news-block-inner">
+                                <div class="news-image wow fadeInLeft" data-wow-delay="0.2s">
+                                                                                                                <img src="http://52.79.122.10/slic_front/public/images/news/slic-new-branch-opening_ceremony.jpg" data-pagespeed-url-hash="659014227" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                    
+                                </div>
+                                <div class="news-content wow fadeInRight" data-wow-delay="0.4s">
+                                    <div class="news-heading"><h3>Sri Lanka Insurance opened 2 New Branches within 2 Weeks</h3></div>
+                                    <div class="news-text">
+
+Sri Lanka Insurance opened 2 new branches during last 2 weeks at Kotikawaththa and Yakkala.
+The insurance giant, Sri Lanka Insurance opened their newest branch in Kotikawatta on 25th September 2018 followed by the branch opening at Yakkala on 17...</div>
+                                    <a class="readmore-link" onclick="newsDetailsView('7')">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="slider-controler">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>	
+
+    </div>
+
+
+
+
+
+   <%-- <div id="ss">
+    <asp:LoginView ID="LoginView2" runat="server">
+        <LoggedInTemplate>
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+     <div class="container-fluid">
+
+      <div class="row">
+          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+       
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+     
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+
+  
+              <a class="navbar-brand" href="/"><img alt="Brand" src="/images/home.png" width="32" height="32"/></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+
+                <ul class="nav navbar-nav">
+
+
+                    <li class="dropdown" style="border-left: 1px solid white; border-right-style: none">
+                      <a href="/Life/Authorized/Default.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="color:Black">Life<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="Life/Authorized/ClientHome.aspx" style="color:Black">Manage My Policies</a></li>
+                        <li><a href="Life/Authorized/MakePayment.aspx" style="color:Black">Third Party Premiums</a></li>
+                      </ul>
+                    </li>
+
+         <li class="dropdown" style="border-left: 1px solid white; border-right-style: none">
+          <a href="/General/Authorized/Default.aspx" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="color:Black">General<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="General/Authorized/ClientHome.aspx" style="color:Black">Manage Policies</a></li>
+            <li><a href="General/Authorized/General_Products.aspx" style="color:Black">Purchase Online</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown" style="border-left: 1px solid white; border-right-style: none">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="color:Black">Profile<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/Authorized/EditProfile.aspx" style="color:Black">View/Edit Profile</a></li>
+            <li><a href="/Authorized/ChangePassword.aspx" style="color:Black">Change Password</a></li>
+          </ul>
+        </li>
+        
+        <li style="border-left: 1px solid white; border-right-style: none"><a class="dropdown-toggle" href="/ContactUs.aspx" style="color:Black">Contact us</a></li>
+
+      </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+	  <p class="navbar-text" style="color:Black;">Signed in as <asp:LoginName ID="HeadLoginName" runat="server" /></p>
+	  <div class="navbar-form navbar-left" >
+        <asp:LoginStatus ID="HeadLoginStatus" runat="server" class="btn btn-dg btn-xs" LogoutAction="Redirect" LogoutText="Sign out" LogoutPageUrl="~/Default.aspx" />
+      </div>
+	  </ul>
+ 
+
+            </div>
+        </div>
+         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+      </div>
+      
+         
+
+
+     </div>
+
+   </nav>
+        </LoggedInTemplate>
+    </asp:LoginView>
+    <br />
+    <div class="main-container" id="main-container">
+        <script type="text/javascript">
+            try { ace.settings.check('main-container', 'fixed') } catch (e) { }
+        </script>
+        <div class="container" style="background-color:#fff; border:0px solid #FFF;">
+
+
+
+
+            <br />
+            <div class="row">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                </div>
+                <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
+                    <div class="panel panel-default">
+                        <a href="/Life/Authorized/Default.aspx">
+                            <img class="img-responsive" src="images/life.png" alt="Life"></a>
+                        <div class="panel-body" style="min-height:100px" align="justify">
+                            Sri Lanka Insurance Life offers a range of life insurance plans to suit your protection and investment requirements, income and life style.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 visible-xs">
+                </div>
+                <div class="row visible-xs">
+                </div>
+                <div class="col-xs-1 visible-xs">
+                </div>
+                <div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
+                    <div class="panel panel-default">
+                        <a href="/General/Authorized/Default.aspx">
+                            <img class="img-responsive" src="images/general.png" alt="General"></a>
+                        <div class="panel-body" style="min-height:100px" align="justify">
+                           General insurance solutions of Sri Lanka Insurance consist of customized solutions to protect yourself, your loved ones and your assets against unexpected incidents.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                </div>
+            </div>
+            <br />
+
+
+
+        </div>
+   
+
+
+   <br />
+   <br />
+   <br />
+    <br />
+
+
+
+    </div>
+    </div>--%>
+
+     <script type="text/javascript">
+
+        function randomNumberFromRange(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+
+        $(document).ready(function () {
+            var minNumber = 999;
+            var maxNumber = 100
+            //alert("test");
+            var randomNumber = randomNumberFromRange(minNumber, maxNumber);
+
+            $("input[id$='hdn_client']").attr('value', randomNumber);
+
+            //alert(randomNumber);
+            alert("test");
+            
+            $("input[id$='LoginButton']").click(function () {
+                alert("test");
+                //var salt = $("input[id$='hdn_client']").val().concat($("input[id$='hdn_server']").val());
+
+                var pwd = $("input[id$='Password']").val();
+                var pwd_hashed = sha512(pwd);
+                var pwd_hashed_cl = pwd_hashed.concat($("input[id$='hdn_client']").val());
+                var pwd_hashed_ser = pwd_hashed_cl.concat($("input[id$='hdn_server']").val());
+                var all_hashed = sha512(pwd_hashed_ser);
+                //alert(all_hashed);
+
+                $("input[id$='hdn_pwd_sbmt']").attr('value', all_hashed);
+
+                var len = $("input[id$='Password']").val().length;
+
+                var boru = "";
+
+                var i = 0;
+                while (len != i) {
+                    boru = boru.concat('*');
+                    i++;
+                }
+
+                $("input[id$='Password']").val(boru);
+                $("input[id$='hdn_server']").val(boru);
+
+
+
+            });
+            
+        });
+    </script>
+   
+      <script type="text/javascript" src="js/sha512.js"></script>   
+
+
+</asp:Content>

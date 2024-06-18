@@ -1,0 +1,21 @@
+﻿body {
+   
+}
+
+fieldset {
+    font-family: sans-serif !important;
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 5px !important;
+    padding: 15px !important;
+}
+
+legend {
+    display: block;
+    width: 15%;
+    padding: 0;
+    /*margin-bottom: 20px;*/
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    /*! border-bottom: 1px solid #e5e5e5 */
+}

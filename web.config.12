@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+  <connectionStrings>
+    <add name="DBConString" connectionString="Data Source=;Persist Security Info=True;User ID=lpay;Password=lpay;Unicode=True" providerName="System.Data.OracleClient" />
+  </connectionStrings>
+  <appSettings>
+    <!-- <add key="webpages:Version" value="1.0.0.0" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />    
+    <add key="EnableSsl" value = "true"/> 
+    <add key="smtpPass" value="*****" />-->
+    <add key="contactEmail" value="ansumalak@srilankainsurance.com" />
+    <add key="smtpServer" value="192.168.248.3" />
+    <add key="smtpPort" value="25" />
+    <add key="smtpUser" value="SLIC-Online@srilankainsurance.com" />
+    <add key="logDir" value="D:\\WebLogs" />
+    <add key="DB2" value="Dsn=PRODDSN;uid=INTERNET;PWD=INTERNET" />
+    <add key="OracleDB" value="User Id=GENPAY;Password=PDGREC;Data Source=BEEGEN;" />
+    <add key="OraLifeDB" value="User Id=LPAY;Password=LPAY;Data Source=BELIFE;" />
+  </appSettings>
+  <system.web>
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <add assembly="System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="IBM.Data.DB2.iSeries, Version=12.0.0.0, Culture=neutral, PublicKeyToken=9CDB2EBFB1F93A26" />
+        <add assembly="System.Data.Services.Client, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <!--<add assembly="Oracle.Web, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89B483F429C47342" />-->
+      </assemblies>
+    </compilation>
+
+    <!--<customErrors mode="On" defaultRedirect="/Errors/error.htm">
+      <error statusCode="500" redirect="/Errors/InternalError.htm" />
+      <error statusCode="404" redirect="/Errors/notfound.htm" />
+      <error statusCode="503" redirect="/Errors/503.htm" />
+    </customErrors>-->
+
+    <customErrors mode="Off">
+      
+    </customErrors>
+
+    <authentication mode="Forms">
+      <!--<forms defaultUrl="Default.aspx" loginUrl="~/Login.aspx" slidingExpiration="true" timeout="20" />-->
+      <forms defaultUrl="Default.aspx" loginUrl="~/Default.aspx" slidingExpiration="true" timeout="20" />
+    </authentication>
+    <pages>
+      <controls>
+        <add tagPrefix="ajaxToolkit" assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" />
+      </controls>
+    </pages>
+    
+  </system.web>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Microsoft.WindowsAzure.Storage" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-2.1.0.4" newVersion="2.1.0.4" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="HtmlAgilityPack" publicKeyToken="bd319b19eaf3b43a" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-1.4.9.0" newVersion="1.4.9.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+    <system.webServer>
+        <defaultDocument>
+            <files>
+                <clear />
+                <add value="default.aspx" />
+                <add value="Default.htm" />
+                <add value="Default.asp" />
+                <add value="index.htm" />
+                <add value="index.html" />
+                <add value="iisstart.htm" />
+            </files>
+        </defaultDocument>
+    </system.webServer>
+</configuration>

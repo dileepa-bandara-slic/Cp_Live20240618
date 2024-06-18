@@ -1,0 +1,148 @@
+﻿/*1*/
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(2) 
+    {
+        text-align:right;
+    background: #e9edef;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(3) 
+    {
+     text-align:right;
+    background: #e9edef;}
+    
+     #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(2) {
+    background: #e9edef;
+    text-align:center;
+    }
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(3) {
+    background: #e9edef;
+    text-align:center;
+    }
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr#top_rows th:nth-child(2) {
+    background: #e9edef;
+    text-align:center;
+    }
+    /*2*/
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(4) 
+    {
+        text-align:right;
+    background: #dfebf8;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(5) 
+    {
+        text-align:right;
+    background: #dfebf8;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(4) {
+    background: #dfebf8;
+    text-align:center;
+    }
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(5) {
+    background: #dfebf8;
+    text-align:center;
+    }
+    
+     #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr#top_rows th:nth-child(3) {
+    background: #dfebf8;
+    text-align:center;
+    }
+    /*3*/
+    
+     #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(6) 
+     {
+         text-align:right;
+    background: #e9edef;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(7) 
+    {
+        text-align:right;
+    background: #e9edef;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(6) {
+    background: #e9edef;
+    text-align:center;
+    }
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(7) {
+    background: #e9edef;
+    text-align:center;
+    }
+    
+     #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr#top_rows th:nth-child(4) {
+    background: #e9edef;
+    text-align:center;
+    }
+    /*4*/
+    
+   #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(8) 
+   {
+       text-align:right;
+    background: #dfebf8;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(9) 
+    {
+        text-align:right;
+    background: #dfebf8;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(8) {
+    background: #dfebf8;
+    text-align:center;
+    }
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(9) {
+    background: #dfebf8;
+    text-align:center;
+    }
+     
+     #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr#top_rows th:nth-child(5) {
+    background: #dfebf8;
+    text-align:center;
+    }
+    /*5*/
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(10) 
+    {
+        text-align:right;
+    background: #e9edef;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(11) 
+    {
+        text-align:right;
+    background: #e9edef;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(10) {
+    background: #e9edef;
+    text-align:center;
+    }
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(11) {
+    background: #e9edef;
+    text-align:center;
+    }
+     #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr#top_rows th:nth-child(6) {
+    background: #e9edef;
+    text-align:center;
+    }
+     /*6*/
+     
+      #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(12) 
+      {
+          text-align:right;
+    background: #dfebf8;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr td:nth-child(13) 
+    {
+        text-align:right;
+    background: #dfebf8;}
+    
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(12) {
+    background: #dfebf8;
+    text-align:center;
+    }
+    #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr th:nth-child(13) {
+    background: #dfebf8;
+    text-align:center;
+    }
+     #ContentPlaceHolder1_ContentPlaceHolder1_gvPlanDetails tr#top_rows th:nth-child(7) {
+    /*background: rgba(136, 194, 201, .8);*/
+    background: #dfebf8;
+    text-align:center;
+    }
+    

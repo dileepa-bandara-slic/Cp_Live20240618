@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Home.master.cs" Inherits="Home" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    
+    <title>Online Purchasing and Policy Management - SLIC</title>
+
+ <style>
+        .navbar-toggle {
+  background-color: #3e3d4e !important; 
+}
+     
+.icon-bar
+{
+    background-color: White !important;
+}
+
+      .btn-dg
+    { 
+        background-color: #CF5D5D!important;
+        border-color: #CF5D5D !important;
+        color:White !important;
+    }
+   
+    .btn-dg:hover, .btn-dg:focus, .btn-dg:active, .btn-dg.active
+    {
+        background-color: #CF5D5D !important;
+        border-color: #CF5D5D !important;
+        color:White !important;
+    } 
+    .navbar{
+    color: #000000;
+    }
+    
+    .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar .navbar-nav > li.open > a
+    {
+        color: #000000 !important;
+    }
+        .navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover,
+.navbar .nav > li.active > a 
+{
+  color: #000000;
+}
+#HeadLoginStatus
+{
+    color: #FFFFFF !important;
+}
+
+.navbar .navbar-nav .dropdown-menu > li > a
+{
+	color:#000000 !important;
+}
+
+.navbar-collapse
+{
+    max-height: 100%  !important;
+    overflow: auto !important;
+    max-width: 100% !important; 
+}  
+
+.navbar-form
+{
+    margin-right: 0px !important;
+}
+
+      .mainmenu a, .navbar-default .navbar-nav > li > a, .mainmenu ul li a, .navbar-expand-lg .navbar-nav .nav-link {
+            font-weight: bold;
+        }
+
+
+        </style>
+
+<asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+      <script type="text/javascript">
+            try { ace.settings.check('navbar', 'fixed') } catch (e) { }
+        </script>
+
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+    </asp:ContentPlaceHolder>
+
+</asp:Content>
+

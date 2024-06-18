@@ -1,0 +1,1145 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/General.master" AutoEventWireup="true"
+    CodeFile="AMP_Quotation.aspx.cs" Inherits="General_Authorized_Products_AMP_Quotation" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+
+    <%--<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>--%>
+      <link href="../assets/css/fieldset.css" rel="stylesheet" />
+      <%--      <link href="/css/footable.min.css"
+            rel="stylesheet" type="text/css" />--%>
+
+    <%--      <link href="../../../css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet"
+        type="text/css" />
+    <script src="../../../js/jquery-1.9.1.js"></script>
+    <script src="../../../js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+     <link href="../assets/css/fieldset.css" rel="stylesheet" />--%>
+    <style>
+        @media (max-width:479px) {
+            /*.navbar-fixed-top + .main-container
+            {
+                padding-top: 40px;
+            }*/
+        }
+        
+        .test22
+        {
+            font-size: 100%;
+            font-family: Tahoma;
+        }
+        
+        .divWaiting
+        {
+            position: absolute;
+            background-color: #FAFAFA;
+            z-index: 2147483647 !important;
+            opacity: 0.8;
+            overflow: hidden;
+            text-align: center;
+            top: 0;
+            left: 0;
+            height: 1024px;
+            width: 100%;
+            padding-top: 20%;
+        }
+        
+     .style10
+    {
+        text-align: center;
+        height: 25px;
+        border: thin solid #DDDDDD;
+        font-weight: bold;
+        background-color: #a19d99;
+        color: #000000;
+    }
+    .style11
+    {
+        color: #000000;
+    }
+    .style12
+    {
+        text-align: center;
+        height: 25px;
+        border: thin solid #DDDDDD;
+        font-weight: bold;
+        color: #000000;
+        background-color: #a19d99;
+    }
+
+        .style13
+    {
+        height: 25px;
+        font-weight: bold;
+        border: thin solid #DDDDDD;
+        background-color: #DCDCDC;
+    }
+    
+    .style2
+    {
+            width: 80%;            
+    }
+     .btn-xx
+    {
+        background-color: #47B862 !important;
+        border-color: #47B862 !important;
+    }
+   
+    .btn-xx:hover, .btn-xx:focus, .btn-xx:active, .btn-xx.active
+    {
+        background-color: #47B862 !important;
+        border-color: #47B862 !important;
+    } 
+    
+     .btn-print
+    {
+        background-color: #899cce !important;
+        border-color: #899cce !important;
+    }
+   
+    .btn-print:hover, .btn-print:focus, .btn-print:active, .btn-print.active
+    {
+        background-color: #899cce !important;
+        border-color: #899cce !important;
+    } 
+    
+   
+    
+    </style>
+
+        <style>
+        /*@media (max-width:479px) {
+            .navbar-fixed-top + .main-container {
+                padding-top: 40px;
+            }
+
+            .container {
+                max-width: 1024px;
+                width: 100%;
+                margin: 0 auto;
+                height: auto;
+                background: #FFFFFF;
+                font-size: 12px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .test22 {
+                font-size: 100%;
+                font-family: Tahoma;
+            }
+        }*/
+
+        @media screen and (max-width:1800px)
+        {
+           /*input[type=text]{width:50%}
+           .select {
+                width:50%;
+           }*/
+            input[type="text"], select{
+                width:60%;
+            }
+
+            .form-control{
+                width:60%;
+            }
+
+            span{
+                width:60%;
+            }
+              element{
+                width:60% !important;
+            }
+
+            legend {
+                font-size: 100%;
+                font-weight:bold;
+                /*font-family: Tahoma;*/
+            }
+
+            fieldset{
+                width:75%;
+                margin: auto;
+            }
+           
+        }
+    </style>
+
+    <style>
+
+        @media screen and (max-width:600px)
+        {
+           /*input[type=text]{width:100%}
+             .select {
+                width:100%;
+           }*/
+             input[type=text] {
+                width:100%;
+            }
+             select {
+                 width:100%;
+             }
+              .form-control{
+                width:100%;
+            }
+
+              span{
+                width:100%;
+            }
+          
+              element{
+                width:100% !important;
+            }
+
+              legend {
+                font-size: 90%;
+                font-weight:bold
+                /*font-family: Tahoma;*/
+            }
+              fieldset{
+                width:100%;
+            }
+             
+        }
+
+        /*legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5
+}*/
+        
+    </style>
+
+        <script type="text/javascript" language="javascript">
+
+        $(function () {
+            aler('test1234');
+            today = new Date();
+            var month, day, year;
+            year = today.getFullYear();
+            month = today.getMonth();
+            date = today.getDate();
+            year = today.getFullYear() - 60;
+            var backdate = new Date(year, month, date)
+            var backdate1 = new Date(year, month, date)
+
+            $("input[id$='txtDOB']").datepicker({ dateFormat: "yy/mm/dd", changeMonth: true, changeYear: true, defaultDate: backdate, yearRange: '-100:+0' });
+
+            //jQuery("input[id$='txtDOB']").datepicker();
+        });
+
+
+
+        $(document).ready(function () {
+
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+
+
+            aler('test5678');
+            today = new Date();
+            var month, day, year;
+            year = today.getFullYear();
+            month = today.getMonth();
+            date = today.getDate();
+            year = today.getFullYear() - 60;
+            var backdate = new Date(year, month, date)
+            var backdate1 = new Date(year, month, date)
+
+
+            function EndRequestHandler(sender, args) {
+
+                // alert("ss");
+                $("input[id$='txtDOB']").datepicker({ dateFormat: "yy/mm/dd", changeMonth: true, changeYear: true, defaultDate: backdate, yearRange: '-100:+0' });
+
+            }
+
+        }); 
+
+ 
+
+    </script>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="main-container" id="main-container">
+        <link href="/css/footable.min.css"
+            rel="stylesheet" type="text/css" />
+        
+        <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--%>
+       <%-- <script src="../assets/js/jquery.min.js" type="text/javascript"></script>--%>
+        <%--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js"></script>--%>
+        <script src="/js/footable.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $('[id*=gvMembers]').footable();
+
+            });
+
+            var prm = Sys.WebForms.PageRequestManager.getInstance();
+            prm.add_endRequest(function () {
+                $('[id*=gvMembers]').footable();
+            });
+
+        </script>
+
+       
+
+        <div class="container">
+           <%-- </br>--%>
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+            <div class="row">
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-10">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/General/Authorized/">General</a></li>
+                        <li class="breadcrumb-item"><a href="/General/Authorized/General_Products.aspx">Purchase
+                            online</a></li>
+                        <li class="breadcrumb-item active">Annual Medical Plan Quotation</li>
+                    </ol>
+                </div>
+                <div class="col-xs-1">
+                </div>
+            </div>
+            <%--</br>--%>
+            <asp:UpdatePanel ID="Ggs14451" runat="server">
+                <ContentTemplate>
+                    <asp:Panel ID="Panel1" runat="server">
+                        <div class="row">
+                            <div class="col-xs-1">
+                            </div>
+                            <div class="col-xs-10">
+                               <%-- <div class="form-horizontal">--%>
+                                <%--<div class="panel panel-default">--%>
+                               <%--     <div class="panel-heading">
+                                    <center>
+                                        <h3> Annual Medical Plan - Quotation </h3>
+                                        </center>
+                                    </div>--%>
+                                <%--    <div class="panel-body">--%>
+
+                                   <div style="align:center">
+                     <fieldset>
+  <legend>Annual Medical Plan - Quotation:</legend>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                Category</div>
+                                            <div class="col-sm-9">
+                                                <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-control" Enabled="False">
+                                                    <asp:ListItem Value="M">Main Life</asp:ListItem>
+                                                    <asp:ListItem Value="S">Spouse</asp:ListItem>
+                                                    <asp:ListItem Value="C">Child</asp:ListItem>
+                                                </asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="CategoryRequired" runat="server" ControlToValidate="ddlCategory"
+                                                    ErrorMessage="Category required" ForeColor="Red" ToolTip="Category is required.">*</asp:RequiredFieldValidator>
+                                                <asp:CustomValidator ID="CategoryValidator" runat="server" ControlToValidate="ddlCategory"
+                                                    ForeColor="Red" OnServerValidate="checkCategory"></asp:CustomValidator>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                Gender
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <asp:RadioButtonList ID="rblGender" runat="server" AutoPostBack="True" RepeatDirection="Horizontal"
+                                                    Style="margin-left: 0px" Enabled="False">
+                                                    <asp:ListItem Value="M" style="margin-right:10px">Male</asp:ListItem>
+                                                    <asp:ListItem Value="F" style="margin-right:10px">Female</asp:ListItem>
+                                                </asp:RadioButtonList>
+                                                <asp:RequiredFieldValidator ID="GenderRequired" runat="server" ControlToValidate="rblGender"
+                                                    ErrorMessage="Gender required" ForeColor="Red" ToolTip="Gender is required.">*</asp:RequiredFieldValidator>
+                                                <asp:CustomValidator ID="GenderValidator" runat="server" ControlToValidate="rblGender"
+                                                    ForeColor="Red" OnServerValidate="checkGender"></asp:CustomValidator>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                Date of Birth</div>
+                                            <div class="col-sm-9">
+                                                <asp:TextBox ID="txtDOB" runat="server" AutoPostBack="True" CssClass="form-control"
+                                                    MaxLength="10" OnTextChanged="txtDOB_TextChanged" placeholder="yyyy/mm/dd" Enabled="False"></asp:TextBox>
+                                             <%--   <asp:TextBox ID="txtDOB" runat="server" AutoPostBack="True" CssClass="form-control"
+                                                    MaxLength="10" OnTextChanged="txtDOB_TextChanged" placeholder="yyyy/mm/dd"></asp:TextBox>--%>
+                                                <asp:Label ID="lblDOBMsg" runat="server" ForeColor="Red"></asp:Label>
+                                                <asp:CustomValidator ID="DOBValidator" runat="server" ControlToValidate="txtDOB"
+                                                    ForeColor="Red" OnServerValidate="checkDOB"></asp:CustomValidator>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                Height (cm)</div>
+                                            <div class="col-sm-9">
+                                                <asp:TextBox ID="txtHeight" runat="server" CssClass="form-control" placeholder="XXX"></asp:TextBox>
+                                                <asp:Label ID="lblHeightMsg" runat="server" ForeColor="Red"></asp:Label>
+                                                <asp:CustomValidator ID="heightValidator" runat="server" ControlToValidate="txtHeight"
+                                                    ForeColor="Red" OnServerValidate="checkHeight"></asp:CustomValidator></div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                Weight (kg)</div>
+                                            <div class="col-sm-9">
+                                                <asp:TextBox ID="txtWeight" runat="server" CssClass="form-control" placeholder="XXX"></asp:TextBox>
+                                                <asp:Label ID="lblWeightMsg" runat="server" ForeColor="Red"></asp:Label>
+                                                <asp:CustomValidator ID="weightValidator" runat="server" ControlToValidate="txtWeight"
+                                                    ForeColor="Red" OnServerValidate="checkWeight"></asp:CustomValidator>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <asp:Button ID="btnSubmit" runat="server" class="btn btn-primary btn-xs" OnClick="btnSubmit_Click"
+                                                    Text="Submit" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <asp:Label ID="lblErrMesg" runat="server" ForeColor="Red" Style="font-size: 12px"></asp:Label>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <asp:GridView ID="gvMembers" runat="server" AutoGenerateColumns="False" CssClass="footable"
+                                                OnRowDeleting="gvMembers_RowDeleting">
+                                                <AlternatingRowStyle BackColor="#F9F9F9" />
+                                                <Columns>
+                                                    <asp:BoundField DataField="RowNumber" HeaderText="Row Number" />
+                                                    <asp:TemplateField HeaderText="Category">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblCategory" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Gender">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblGender" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Date Of Birth">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblDOB" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Age">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblAge" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Height (cm)">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblHeight" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Weight (kg)">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblWeight" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ControlStyle-CssClass="btn btn-danger btn-xs" ShowDeleteButton="True" />
+                                                </Columns>
+                                                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                                <HeaderStyle Font-Bold="True" />
+                                            </asp:GridView>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <asp:Button ID="btnCalc" runat="server" CssClass="btn btn-primary btn-xs" OnClick="btnCalc_Click"
+                                                    Text="Get Quotation" Visible="False" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <asp:Label ID="lblErrMesg2" runat="server" ForeColor="Red" Style="font-size: 12px"></asp:Label>
+                                            </div>
+                                        </div>
+                                        <br>
+                                  <%--  </div>--%>
+                                <%--</div>--%>
+                         <%--   </div>--%>
+                         </fieldset>
+                            </div>
+                        </div>
+                        <div class="col-xs-1">
+                        </div>
+                        </div>
+
+
+
+
+                    </asp:Panel>
+                    <asp:UpdateProgress ID="UpdateProgress1" DisplayAfter="10" runat="server" AssociatedUpdatePanelID="Ggs14451">
+                        <ProgressTemplate>
+                            <div class="divWaiting">
+                                <img src="/images/load.gif" />
+                                <asp:Label ID="lblWait" runat="server" Text=" Please wait... " />
+                            </div>
+                        </ProgressTemplate>
+                    </asp:UpdateProgress>
+                    <br />
+                </ContentTemplate>
+                <Triggers>
+                    <asp:PostBackTrigger ControlID="btnCalc" />
+                     <asp:PostBackTrigger ControlID="txtDOB"/>
+                </Triggers>
+            </asp:UpdatePanel>
+            <asp:Panel ID="Panel2" runat="server" Visible="False">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <%-- <table class="style2 table   table-hover">--%>
+                        <tr>
+                            <td class="style6">
+                            </td>
+                            <td class="style12">
+                                <span class="style11">Plan A</span>
+                            </td>
+                            <td class="style10">
+                                Plan B
+                            </td>
+                            <td class="style10">
+                                Plan C
+                            </td>
+                            <td class="style10">
+                                Plan D
+                            </td>
+                            <td class="style10">
+                                Plan E
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Premium (Rs.)
+                            </td>
+                            <td class="style9" align="right">
+                                <asp:Label ID="lblPremiumA" runat="server"></asp:Label>
+                            </td>
+                            <td class="style9" align="right">
+                                <asp:Label ID="lblPremiumB" runat="server"></asp:Label>
+                            </td>
+                            <td class="style9" align="right">
+                                <asp:Label ID="lblPremiumC" runat="server"></asp:Label>
+                            </td>
+                            <td class="style9" align="right">
+                                <asp:Label ID="lblPremiumD" runat="server"></asp:Label>
+                            </td>
+                            <td class="style9" align="right">
+                                <asp:Label ID="lblPremiumE" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                &nbsp;
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlBuyA" runat="server" OnPreRender="hlBuyA_PreRender" CssClass="btn btn-xx btn-xs"
+                                    Style="width: 60px" Font-Bold="True">Buy</asp:HyperLink>
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlBuyB" runat="server" CssClass="btn btn-xx btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Buy</asp:HyperLink>
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlBuyC" runat="server" CssClass="btn btn-xx btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Buy</asp:HyperLink>
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlBuyD" runat="server" CssClass="btn btn-xx btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Buy</asp:HyperLink>
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlBuyE" runat="server" CssClass="btn btn-xx btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Buy</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                &nbsp;
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlPrintA" runat="server" CssClass="btn btn-print btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Print</asp:HyperLink>
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlPrintB" runat="server" CssClass="btn btn-print btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Print</asp:HyperLink>
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlPrintC" runat="server" CssClass="btn btn-print btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Print</asp:HyperLink>
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlPrintD" runat="server" CssClass="btn btn-print btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Print</asp:HyperLink>
+                            </td>
+                            <td class="style7" align="center">
+                                <asp:HyperLink ID="hlPrintE" runat="server" CssClass="btn btn-print btn-xs" Style="width: 60px"
+                                    Font-Bold="True">Print</asp:HyperLink>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Sum Insured (Rs.)
+                            </td>
+                            <td class="style7" align="right">
+                                100,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                250,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                500,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                750,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                1,000,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style13" colspan="6">
+                                Hospitalisation Benefit - Private Hospitals Only (Minimum Hospitalisation of 24
+                                hours)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Hospital Room and Board (Ward/ICU per day) (Subject to a maximum 30% of annual sum
+                                insured per year)
+                            </td>
+                            <td class="style7" align="right">
+                                3,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                5,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                7,500.00
+                            </td>
+                            <td class="style7" align="right">
+                                10,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                10,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Surgeon, Anesthetist, Medical Practitioner, Consultant and Specialist fees etc (
+                                Maximum Benefit)
+                            </td>
+                            <td class="style7" align="right">
+                                30,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                75,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                150,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                225,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                300,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Medicines, Consumables, Operation Theatre etc. ( Maximum Benefit)
+                            </td>
+                            <td class="style7" align="right">
+                                40,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                100,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                200,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                300,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                400,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Ambulance Charges (subject to a licensed ambulance service being used)
+                            </td>
+                            <td class="style7" align="right">
+                                1,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                2,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                3,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                4,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                5,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                *Maternity Benefit (Abnormal Childbirth, including cesarean surgery)
+                            </td>
+                            <td class="style7" align="right">
+                                15,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                37,500.00
+                            </td>
+                            <td class="style7" align="right">
+                                75,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                100,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                150,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                *Maternity Benefit (Normal Childbirth)
+                            </td>
+                            <td class="style7" align="right">
+                                10,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                25,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                50,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                60,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                75,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Pre and Post Hospitalisation Benefit
+                            </td>
+                            <td class="style7" colspan="5">
+                                As charged up to a maximum of 5% of SI
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style13" colspan="6">
+                                Hospitalisation Benefit - Government Hospitals Only (Minimum Hospitalisation of
+                                24 hours)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Hospitalized in a non paying ward - Daily allowance maximum upto 15 days
+                            </td>
+                            <td class="style7" align="right">
+                                1,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                1,500.00
+                            </td>
+                            <td class="style7" align="right">
+                                3,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                4,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                5,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Medicines, Consumables, OT Charges etc. (Maximum benefit)
+                            </td>
+                            <td class="style7" colspan="5">
+                                As charged up to a maximum of 40% of SI
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                *Maternity Benefit Allowance (Normal Child birth, Abnormal Childbirth, including
+                                cesarean surgery)
+                            </td>
+                            <td class="style7" align="right">
+                                5,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                10,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                15,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                20,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                25,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style13" colspan="6">
+                                Additional Benefits (Maximum within annual Sum Insured)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Treatment for Cataract (Including lenses)
+                            </td>
+                            <td class="style7" align="right">
+                                20,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                50,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                75,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                75,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                75,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Hernia
+                            </td>
+                            <td class="style7" align="right">
+                                35,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                87,500.00
+                            </td>
+                            <td class="style7" align="right">
+                                120,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                120,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                120,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Hysterectomy
+                            </td>
+                            <td class="style7" align="right">
+                                45,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                112,500.00
+                            </td>
+                            <td class="style7" align="right">
+                                150,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                150,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                150,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Cholecystectomy
+                            </td>
+                            <td class="style7" align="right">
+                                50,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                125,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                170,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                170,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                170,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Renal and/or Ureteric calculus
+                            </td>
+                            <td class="style7" align="right">
+                                20,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                50,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                70,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                70,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                70,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                All types of cardiac Surgeries, e.g. CABG, Angioplasty, Heart Valve replacement,
+                                Pacemaker implantation for Sick Sinus syndrome. <%--(<a data-toggle="modal" href="#myModal"><strong>Indicative
+                                    List</strong></a>)--%>
+                            </td>
+                            <td class="style7" align="right">
+                                100,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                250,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                500,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                500,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                500,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Cancer Surgeries including radio / chemotherapy
+                            </td>
+                            <td class="style7" align="right">
+                                100,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                250,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                400,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                400,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                400,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Hip and / or knee joint replacement
+                            </td>
+                            <td class="style7" align="right">
+                                100,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                250,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                500,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                550,000.00
+                            </td>
+                            <td class="style7" align="right">
+                                550,000.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Day Care Surgery
+                            </td>
+                            <td class="style7" colspan="5">
+                                Covered subjected to hospitalisation for less than 24 hours; 135 Day Care Procedures
+                                covered
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Organ Donor Expenses
+                            </td>
+                            <td class="style7" colspan="5">
+                                Covered within the Sum Insured of the donee
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                No Claim Bonus
+                            </td>
+                            <td class="style7" colspan="5">
+                                Increase in basic sum insured by 5%, for every claim free year, upto a maximum of
+                                50%. In case of a claim, Benefit limit will be reduced by 10%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                Family Coverage
+                            </td>
+                            <td class="style7" colspan="5">
+                                Self, Spouse and Maximum 5 Children
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style6" colspan="6">
+                                *Notes Maternity Cover (Both Private and Government Hospitals): Only receivable
+                                after two years waiting period for policies of female lives renewed without any
+                                break
+                                <br />
+                                Conditions Apply
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    &times;</button>
+                                <h5 class="modal-title">
+                                    Indicative List</h5>
+                            </div>
+                            <div class="modal-body">
+                                <ol>
+                                    <li><span>Deviated Nasal Septum/ Nasal &amp; Paranasal Sinus Disorders (except Malignancy),
+                                        Treatment for Chronic Suppurative Otitis Media (CSOM) and Serous Otitis Media (Grommet
+                                        Insertion)<o:p></o:p></span> </li>
+                                    <li><span>Medical or Surgical management of diseases of Tonsils / Adenoids (except Malignancy)<o:p></o:p></span>
+                                    </li>
+                                    <li><span>Surgery of Thyroid Gland excluding for the reason of Malignancy<o:p></o:p></span>
+                                    </li>
+                                    <li><span>All types of Hernias<o:p></o:p></span> </li>
+                                    <li><span>Hydrocoele / Varicocoele / Spermatocoele<o:p></o:p></span> </li>
+                                    <li><span>Piles / Fissure / Fistula-in-Ano / Rectal Prolapse / Pilonidal Sinus<o:p></o:p></span>
+                                    </li>
+                                    <li><span>Benign Prostatic Hypertrophy<o:p></o:p></span> </li>
+                                    <li><span>Treatment of all gynaecological conditions (Such as but not limited to Uterine
+                                        Fibroid, Dysfunctional Uterine Bleeding, Hysterectomy, Uterine Prolapse, Endometriosis,
+                                        Adenomyosis Uteri, Ovarian Cyst etc) except those arising from malignancy<o:p></o:p></span>
+                                    </li>
+                                    <li><span>Prolapsed Intervertebral Disc<o:p></o:p></span> </li>
+                                    <li><span>Hypertension and related complications<o:p></o:p></span> </li>
+                                    <li><span>Skin and all internal cysts/tumors/nodules/ polyps/ganglions/lipomas of any
+                                        kind unless malignant<o:p></o:p></span> </li>
+                                    <li><span>Calculus Diseases of any aetiology<o:p></o:p></span> </li>
+                                    <li><span>Retinopathy / Retinal Detachment<o:p></o:p></span> </li>
+                                    <li><span>Peripheral Vascular Disease due to Diabetes / Diabetic Foot<o:p></o:p></span>
+                                    </li>
+                                    <li><span>All types of CRF and acute on chronic Renal Failures but not ARF, including
+                                        Renal Failure due to Diabetes<o:p></o:p></span> </li>
+                                    <li><span>Osteoporosis / Pathological Fracture / Degenerative Joint Diseases<o:p></o:p></span>
+                                    </li>
+                                    <li><span>Cataract<o:p></o:p></span> </li>
+                                    <li><span>Treatment for degenerative joint conditions including joint replacement surgeries.
+                                        However, joint surgeries necessitated due to accidents would not be a part of this
+                                        exclusion<o:p></o:p></span> </li>
+                                    <li><span>Treatment for benign breast disorders like fibroadenoma, fibrocystic disease
+                                        etc<o:p></o:p></span> </li>
+                                    <li><span>Treatment for Carpal tunnel syndrome<o:p></o:p></span> </li>
+                                    <li><span>Treatment for Peripheral Vascular disease including varicose veins</span>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btn-xs" data-dismiss="modal">
+                                    Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </asp:Panel>
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+
+
+            <script src="/js/jquery-ui-1.10.4.custom.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+     
+    <script type="text/javascript">
+    function pageLoad(sender, args) {
+        $('#txtDOB').datetimepicker({ pickDate: false });
+    }      
+</script>
+
+   <%-- <script src="../../../js/jquery-ui-1.10.4.custom.js"></script>
+
+    <script type="text/javascript" language="javascript">
+
+        $(function () {
+            aler('test1234');
+            today = new Date();
+            var month, day, year;
+            year = today.getFullYear();
+            month = today.getMonth();
+            date = today.getDate();
+            year = today.getFullYear() - 60;
+            var backdate = new Date(year, month, date)
+            var backdate1 = new Date(year, month, date)
+
+            $("input[id$='txtDOB']").datepicker({ dateFormat: "yy/mm/dd", changeMonth: true, changeYear: true, defaultDate: backdate, yearRange: '-100:+0' });
+            
+        });
+
+
+
+        $(document).ready(function () {
+
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+
+
+            aler('test5678');
+            today = new Date();
+            var month, day, year;
+            year = today.getFullYear();
+            month = today.getMonth();
+            date = today.getDate();
+            year = today.getFullYear() - 60;
+            var backdate = new Date(year, month, date)
+            var backdate1 = new Date(year, month, date)
+
+
+            function EndRequestHandler(sender, args) {
+                
+                $("input[id$='txtDOB']").datepicker({ dateFormat: "yy/mm/dd", changeMonth: true, changeYear: true, defaultDate: backdate, yearRange: '-100:+0' });
+
+            }
+
+        }); 
+
+ 
+
+    </script>--%>
+</asp:Content>

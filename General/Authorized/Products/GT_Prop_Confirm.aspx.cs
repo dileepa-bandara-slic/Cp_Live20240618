@@ -1,0 +1,564 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+
+public partial class General_Authorized_Products_GT_Prop_Confirm : System.Web.UI.Page
+{
+    EncryptDecrypt dc = new EncryptDecrypt();
+    Dictionary<string, string> qs = new Dictionary<string, string>();
+    string QID = "";
+    public string errorMsg { get; set; }
+    string passportNo = "";
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+
+            LoadGridview();
+            string strReq = "";
+            strReq = Request.RawUrl;
+            string h = strReq.Substring(strReq.Length - 1);
+            if (h == "#")
+            {
+                errorMsg = "No url";
+                Response.Redirect("~/Errors/InternalError.htm");
+            }
+            else
+            {
+                strReq = strReq.Substring(strReq.IndexOf('?') + 1);
+
+                EncryptDecrypt enc = new EncryptDecrypt();
+                strReq = enc.Decrypt(strReq);
+                if (strReq == "#")
+                {
+                    errorMsg = "No Parameters Passed";
+                    Response.Redirect("~/Errors/InternalError.htm");
+                }
+                else
+                {
+                    Dictionary<string, string> paraList = new Dictionary<string, string>();
+                    paraList = enc.getParameters(strReq);
+
+                    if (paraList.ContainsKey("Quot#5N0"))
+                    {
+                        //DataTable dtMembers = new DataTable();
+                        List<GT_Proposal_mem> dtMembers = new List<GT_Proposal_mem>();
+                        CustProfile cp = new CustProfile(User.Identity.Name);
+                        passportNo = cp.O_passportNo;
+                        QID = paraList["Quot#5N0"];
+                        litQuotNo.Text = QID;
+
+                        EncryptDecrypt dc = new EncryptDecrypt();
+                        Dictionary<string, string> qs = new Dictionary<string, string>();
+
+                        GT_Proposal_mast gtp = new GT_Proposal_mast(QID);
+
+                        Country cn = new Country();
+
+                        if (cn.check_schengen(gtp.destination))
+                            lbl_shen.Text = "* 15 days are added, since your final destination is a schengen country.";
+                        else
+                            lbl_shen.Text = "";
+
+                        qs.Add("action", "print");
+                        qs.Add("refNo", QID);
+                        qs.Add("plan", gtp.plan);
+                        hlPrint.NavigateUrl = dc.url_encrypt("~/General/Authorized/Products/GT_Prop_print.aspx", qs);
+
+                        litPlan.Text = gtp.get_scheme_name(gtp.plan);
+                        hdn_plan.Value = gtp.plan;
+                        litSumIns.Text = gtp.sumIns_usd.ToString("N2");
+                        litPremium.Text = gtp.finalPremium_rs.ToString("N2");
+                        dtMembers = gtp.members;
+
+                        litStrtDt.Text = DateTime.Now.ToString("yyyy/MM/dd");
+                        litTitle.Text = gtp.title;
+                        litName.Text = gtp.fullName;
+                        litAddress.Text = gtp.add_1 + (!String.IsNullOrEmpty(gtp.add_2.Trim()) ? "<br/>&nbsp;&nbsp" + gtp.add_2 : "") + (!String.IsNullOrEmpty(gtp.add_3.Trim()) ? "<br/>&nbsp;&nbsp" + gtp.add_3 : "") + (!String.IsNullOrEmpty(gtp.add_4.Trim()) ? "<br/>&nbsp;&nbsp" + gtp.add_4 : "");
+                        litMobileNo.Text = gtp.mobile_tp;
+                        litHomeNo.Text = gtp.home_tp;
+                        litOfficeNo.Text = gtp.office_tp;
+                        gvMembers.DataSource = dtMembers;
+                        gvMembers.DataBind();
+
+                        gvMembers.Columns[0].Visible = false;
+
+                        litNIC.Text = cp.O_nicNo;
+                        litBirthDate.Text = cp.O_dateOfBirth;
+                        lit_leaving.Text = gtp.departDate;
+                        lit_returning.Text = gtp.returnDate;
+                        litEmail.Text = cp.O_email;
+
+                        Proposal prop = new Proposal();
+                        prop.fillTravelPurposeDdl(ddr_purpose);
+                        prop.fillDdlTitles(gvMembers);
+
+                        DropDownList ddlTitles = ((DropDownList)gvMembers.Rows[0].Cells[1].FindControl("ddTitle"));
+                        TextBox txtName = ((TextBox)gvMembers.Rows[0].Cells[2].FindControl("txtName"));
+                        TextBox txtPPno = ((TextBox)gvMembers.Rows[0].Cells[2].FindControl("txtPP"));
+
+                        string memType = gvMembers.Rows[0].Cells[7].Text.ToString();
+                        if (memType == "Main Life")
+                        {
+                            ddlTitles.SelectedValue = litTitle.Text;
+                            txtName.Text = litName.Text;
+                            txtPPno.Text = cp.O_passportNo;
+
+                            ddlTitles.Enabled = false;
+                           // txtName.Enabled = false;
+
+                            //if (!String.IsNullOrEmpty(cp.O_passportNo))
+                            //    txtPPno.Enabled = false;
+                        }
+
+                        DataTable dttbl = new DataTable();
+                        dttbl.Columns.Add("From", typeof(string));
+                        dttbl.Columns.Add("To", typeof(string));
+
+                        if (!String.IsNullOrEmpty(gtp.visitCntry1))
+                        {
+                            dttbl.Rows.Add(gtp.get_country_name("LK"), gtp.get_country_name(gtp.visitCntry1));
+                        }
+
+                        if (!String.IsNullOrEmpty(gtp.visitCntry2))
+                        {
+                            dttbl.Rows.Add(gtp.get_country_name(gtp.visitCntry1), gtp.get_country_name(gtp.visitCntry2));
+                        }
+
+                        if (!String.IsNullOrEmpty(gtp.visitCntry3))
+                        {
+                            dttbl.Rows.Add(gtp.get_country_name(gtp.visitCntry2), gtp.get_country_name(gtp.visitCntry3));
+                        }
+
+                        if (!String.IsNullOrEmpty(gtp.visitCntry4))
+                        {
+                            dttbl.Rows.Add(gtp.get_country_name(gtp.visitCntry3), gtp.get_country_name(gtp.visitCntry4));
+                        }
+
+                        GridView1.DataSource = dttbl;
+                        GridView1.DataBind();
+                        LoadGridview();
+                        //litNIC.Text = gtp.ni
+                        //litBirthDate.Text = gtp.dat
+                    }
+                    else
+                    {
+                        errorMsg = "No valid Parameters Passed";
+                        Response.Redirect("~/Errors/InternalError.htm");
+                    }
+                }
+            }
+        }
+    }
+
+    private void LoadGridview()
+    {
+        if (GridView1.Rows.Count > 0)
+        {
+            GridView1.HeaderRow.Cells[0].Attributes.Add("data-class", "expand");
+            GridView1.HeaderRow.Cells[2].Attributes.Add("data-hide", "phone");
+
+            GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
+
+        if (gvMembers.Rows.Count > 0)
+        {
+            gvMembers.HeaderRow.Cells[1].Attributes.Add("data-class", "expand");
+            gvMembers.HeaderRow.Cells[2].Attributes.Add("data-hide", "phone");
+            gvMembers.HeaderRow.Cells[3].Attributes.Add("data-hide", "phone");
+            gvMembers.HeaderRow.Cells[4].Attributes.Add("data-hide", "phone,tablet");
+            gvMembers.HeaderRow.Cells[5].Attributes.Add("data-hide", "phone,tablet");
+            gvMembers.HeaderRow.Cells[6].Attributes.Add("data-hide", "phone,tablet");
+            gvMembers.HeaderRow.Cells[7].Attributes.Add("data-hide", "phone,tablet");
+
+            gvMembers.HeaderRow.TableSection = TableRowSection.TableHeader;
+        }
+    }
+
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        LoadGridview();
+        ddrPurposeValidator.Validate();
+        cntNameValidator.Validate();
+        adrs1Validator.Validate();
+        adrs2Validator.Validate();
+        adrs3Validator.Validate();
+        adrs4Validator.Validate();
+        tel1Validator.Validate();
+        tel2Validator.Validate();
+
+        if (ddrPurposeValidator.IsValid && cntNameValidator.IsValid &&
+            adrs1Validator.IsValid && adrs2Validator.IsValid &&
+            adrs3Validator.IsValid && adrs4Validator.IsValid &&
+            tel1Validator.IsValid && tel2Validator.IsValid)
+        {
+            formatMemDetails(gvMembers);
+            bool memValid = checkMemberDetails(gvMembers);
+
+            if (memValid)
+            {
+                try
+                {
+                    CustProfile cp = new CustProfile();
+                    TextBox tb = (TextBox)gvMembers.Rows[0].FindControl("txtPP");
+
+                    string message = cp.saveProfile_Passport(Page.User.Identity.Name, tb.Text);
+
+                    cp = new CustProfile(User.Identity.Name);
+                    passportNo = cp.O_passportNo;
+
+                    Proposal pro = new Proposal();
+                    if (pro.confirm_GT_proposal(User.Identity.Name, litQuotNo.Text.Trim(), hdn_plan.Value, Convert.ToDouble(litPremium.Text.Trim()),
+                                                lit_leaving.Text.Trim(), lit_returning.Text.Trim(), litTitle.Text.Trim(), litName.Text.Trim(),
+                                                litAddress.Text.Trim(), litMobileNo.Text.Trim(), litHomeNo.Text.Trim(), litOfficeNo.Text.Trim(),
+                                                litEmail.Text.Trim(), litNIC.Text.Trim(), ddr_purpose.SelectedValue.Trim(), txt_ConName.Text.Trim(),
+                                                txt_ConAdd1.Text.Trim(), txt_ConAdd2.Text.Trim(), txt_ConAdd3.Text.Trim(), txt_ConAdd4.Text.Trim(),
+                                                txt_ConTel1.Text.Trim(), txt_ConTel2.Text.Trim(), Convert.ToDouble(litSumIns.Text.Trim()), gvMembers, passportNo))
+                    {
+                        
+
+
+
+                        EncryptDecrypt dc = new EncryptDecrypt();
+                        Dictionary<string, string> qs = new Dictionary<string, string>();
+                        qs.Add("Ref_No", litQuotNo.Text);
+                        qs.Add("Type", "N"); // N-new businees, R-renewals
+                        Response.Redirect(dc.url_encrypt("Payment.aspx", qs), false);
+                    }
+                    else
+                    {
+                        lblErrMesg.Text = "An error occured, please resubmit with correct details";
+                        lblErrMesg.Focus();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("~/Errors/InternalError.htm");
+                }
+            }
+        }
+    }
+    protected void checkCntName(object source, ServerValidateEventArgs args)
+    {
+        int status = -1;
+        string message = "";
+
+        InfoValidator validator = new InfoValidator();
+        validator.validateContctName(txt_ConName.Text, out status, out message);
+
+        if (status == 0)
+        {
+            args.IsValid = true;
+            txt_ConAdd1.Focus();
+        }
+        else
+        {
+            args.IsValid = false;
+            cntNameValidator.ErrorMessage = message;
+            txt_ConName.Focus();
+        }
+    }
+    protected void checkCntAdrs1(object source, ServerValidateEventArgs args)
+    {
+        int status = -1;
+        string message = "";
+
+        InfoValidator validator = new InfoValidator();
+        validator.validateContAddressLine(txt_ConAdd1.Text, out status, out message);
+
+        if (status == 0)
+        {
+            args.IsValid = true;
+            txt_ConAdd2.Focus();
+        }
+        else
+        {
+            args.IsValid = false;
+            adrs1Validator.ErrorMessage = message;
+            txt_ConAdd1.Focus();
+        }
+    }
+    protected void checkCntAdrs2(object source, ServerValidateEventArgs args)
+    {
+        int status = -1;
+        string message = "";
+
+        InfoValidator validator = new InfoValidator();
+        validator.validateContAddressLine(txt_ConAdd2.Text, out status, out message);
+
+        if (status == 0)
+        {
+            args.IsValid = true;
+            txt_ConAdd3.Focus();
+        }
+        else
+        {
+            args.IsValid = false;
+            adrs2Validator.ErrorMessage = message;
+            txt_ConAdd2.Focus();
+        }
+    }
+    protected void checkCntAdrs3(object source, ServerValidateEventArgs args)
+    {
+        int status = -1;
+        string message = "";
+
+        InfoValidator validator = new InfoValidator();
+        validator.validateContAddressLine(txt_ConAdd3.Text, out status, out message);
+
+        if (status == 0)
+        {
+            args.IsValid = true;
+            txt_ConAdd4.Focus();
+        }
+        else
+        {
+            args.IsValid = false;
+            adrs3Validator.ErrorMessage = message;
+            txt_ConAdd3.Focus();
+        }
+    }
+    protected void checkCntAdrs4(object source, ServerValidateEventArgs args)
+    {
+        int status = -1;
+        string message = "";
+
+        InfoValidator validator = new InfoValidator();
+        validator.validateContAddressLine(txt_ConAdd4.Text, out status, out message);
+
+        if (status == 0)
+        {
+            args.IsValid = true;
+            txt_ConTel1.Focus();
+        }
+        else
+        {
+            args.IsValid = false;
+            adrs4Validator.ErrorMessage = message;
+            txt_ConAdd4.Focus();
+        }
+    }
+    protected void checkCntTel1(object source, ServerValidateEventArgs args)
+    {
+        int status = -1;
+        string message = "";
+
+        InfoValidator validator = new InfoValidator();
+        validator.validateContactNumber(txt_ConTel1.Text, out status, out message);
+
+        if (status == 0)
+        {
+            args.IsValid = true;
+            txt_ConTel2.Focus();
+        }
+        else
+        {
+            args.IsValid = false;
+            tel1Validator.ErrorMessage = message;
+            txt_ConTel1.Focus();
+        }
+    }
+    protected void checkCntTel2(object source, ServerValidateEventArgs args)
+    {
+        int status = -1;
+        string message = "";
+
+        InfoValidator validator = new InfoValidator();
+        validator.validateContactNumber(txt_ConTel2.Text, out status, out message);
+
+        if (status == 0)
+        {
+            args.IsValid = true;
+            Button1.Focus();
+        }
+        else
+        {
+            args.IsValid = false;
+            tel2Validator.ErrorMessage = message;
+            txt_ConTel2.Focus();
+        }
+    }
+    protected void txt_ConName_TextChanged(object sender, EventArgs e)
+    {
+        cntNameValidator.Validate();
+    }
+
+    protected void txt_ConAdd1_TextChanged(object sender, EventArgs e)
+    {
+        adrs1Validator.Validate();
+    }
+    protected void txt_ConAdd2_TextChanged(object sender, EventArgs e)
+    {
+        adrs2Validator.Validate();
+    }
+    protected void txt_ConAdd3_TextChanged(object sender, EventArgs e)
+    {
+        adrs3Validator.Validate();
+    }
+
+    protected void txt_ConTel1_TextChanged(object sender, EventArgs e)
+    {
+        tel1Validator.Validate();
+    }
+    protected void txt_ConTel2_TextChanged(object sender, EventArgs e)
+    {
+        tel2Validator.Validate();
+    }
+
+    protected void checkDdrPurpose(object source, ServerValidateEventArgs args)
+    {
+        int status = -1;
+        string message = "";
+
+        InfoValidator validator = new InfoValidator();
+        validator.validateTravelPurpose(ddr_purpose.SelectedValue, out status, out message);
+
+        if (status == 0)
+        {
+            args.IsValid = true;
+            txt_ConName.Focus();
+        }
+        else
+        {
+            args.IsValid = false;
+            ddrPurposeValidator.ErrorMessage = message;
+            ddr_purpose.Focus();
+        }
+    }
+
+    protected bool checkMemberDetails(GridView gvMembers)
+    {
+        LoadGridview();
+        bool retVal = false;
+
+        lblErrMesg.Text = "";
+        int status = -1;
+        string message = "";
+
+        int i = 0;
+
+        foreach (GridViewRow row in gvMembers.Rows)
+        {
+            i++;
+            if (row.RowType == DataControlRowType.DataRow)
+            {
+                string memId = row.Cells[0].Text.Trim();
+                string memTitle = ((DropDownList)row.FindControl("ddTitle")).SelectedValue.ToString().Trim();
+                string memGender = row.Cells[4].Text.Trim().Substring(0, 1);                
+                string memName = ((TextBox)row.FindControl("txtName")).Text.Trim();                
+                string memPP = ((TextBox)row.FindControl("txtPP")).Text.Trim();
+
+                if (memTitle != "" && memTitle != "Select")
+                {
+                    InfoValidator validator = new InfoValidator();
+                    if (!validator.validateGenderWithTitle(memGender, memTitle))
+                    {
+                        lblErrMesg.Text = "Gender and Title does not match.";
+                        lblErrMesg.Focus();
+                    }
+                }
+                else
+                {
+                    lblErrMesg.Text = "Titles of all dependents should be entered";
+                    lblErrMesg.Focus();
+                }
+                if (lblErrMesg.Text == "")
+                {
+                    if (memName != "")
+                    {
+                        status = -1;
+                        message = "";
+                        InfoValidator validator = new InfoValidator();
+                        validator.validateGTMemberName(memName, out status, out message);
+
+                        if (status != 0)
+                        {
+                            lblErrMesg.Text = message;
+                            lblErrMesg.Focus();
+                        }
+                    }
+                    else
+                    {
+                        lblErrMesg.Text = "Name(s) of all dependents should be entered";
+                        lblErrMesg.Focus();
+                    }
+                }
+                if (lblErrMesg.Text == "")
+                {
+                    if (memPP != "")
+                    {
+                        status = -1;
+                        message = "";
+                        InfoValidator validator = new InfoValidator();
+                        validator.validateGTMemberPPNo(memPP,Page.User.Identity.Name,i, out status, out message);
+
+                        if (status != 0)
+                        {
+                            lblErrMesg.Text = message;
+                            lblErrMesg.Focus();
+                        }
+                    }
+                    else
+                    {
+                        lblErrMesg.Text = "Passport Number of all members should be entered";
+                        lblErrMesg.Focus();
+                    }
+                }
+            }
+
+            if (lblErrMesg.Text != "")
+            {
+                break;
+            }
+        }
+
+        if (lblErrMesg.Text == "")
+        {
+            retVal = true;
+        }
+        return retVal;
+    }
+
+    protected void formatMemDetails(GridView gvMembers)
+    {
+        foreach (GridViewRow row in gvMembers.Rows)
+        {
+            if (row.RowType == DataControlRowType.DataRow)
+            {
+                TextBox tbName = (TextBox)row.FindControl("txtName");
+                string txtname = tbName.Text;
+                int index1 = txtname.LastIndexOf(',');
+
+                string memName = "";
+
+                if (index1 != -1)
+                {
+                    index1++;
+                    memName = tbName.Text.Substring(index1);
+                    tbName.Text = memName;
+                }                
+
+                TextBox tbPP = (TextBox)row.FindControl("txtPP");
+                string txtPP = tbPP.Text;
+                int index2 = txtPP.LastIndexOf(',');
+
+                string memPP = "";
+
+                if (index2 != -1)
+                {
+                    index2++;
+                    memPP = tbPP.Text.Substring(index2);
+                    tbPP.Text = memPP;
+                }
+                
+            }
+        }
+    }
+
+}
